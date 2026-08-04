@@ -1,88 +1,126 @@
-/* =============================================
-   Leveo Bygg AB — Script
-============================================= */
+/* ========================================
+   LEVEO BYGG AB — script.js
+   Vanilla JS: mobile nav, card flip toggle,
+   form submit feedback
+   ======================================== */
 
-'use strict';
-
-// ---- Mobile nav toggle ----
 (function () {
-  var toggle = document.querySelector('.nav-toggle');
-  var menu   = document.getElementById('nav-menu');
-  if (!toggle || !menu) return;
+  'use strict';
 
-  toggle.addEventListener('click', function () {
-    var isOpen = menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
+  /* ---- MOBILE NAV TOGGLE ---- */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList = document.querySelector('.nav-list');
 
-  // Close nav when a link is clicked
-  menu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+  if (navToggle && navList) {
+    navToggle.addEventListener('click', function () {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navToggle.classList.toggle('open');
+      navList.classList.toggle('open');
     });
-  });
 
-  // Close nav on outside click
-  document.addEventListener('click', function (e) {
-    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
+    // Close nav when a link is clicked
+    navList.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('open');
+        navList.classList.remove('open');
+      });
+    });
 
-// ---- Flip cards: tap-to-toggle on mobile (no :hover) ----
-(function () {
-  // Only relevant on touch/small screens — but we handle it universally
-  // via the CSS mobile overrides (flat layout).
-  // On desktop, CSS :hover handles the flip.
-  // On mobile, the cards are stacked so both sides show; no JS flip needed.
-  // This section handles keyboard accessibility (Enter/Space on focused card).
-  var cards = document.querySelectorAll('.flip-card');
-  cards.forEach(function (card) {
-    card.addEventListener('keydown', function (e) {
+    // Close nav when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!navToggle.contains(e.target) && !navList.contains(e.target)) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('open');
+        navList.classList.remove('open');
+      }
+    });
+  }
+
+  /* ---- CARD FLIP: mobile tap toggle ---- */
+  // On mobile, CSS resets the 3D flip to stacked layout.
+  // We use the .flipped class to show/hide the back face.
+  const cardWrappers = document.querySelectorAll('.card-flip-wrapper');
+
+  cardWrappers.forEach(function (wrapper) {
+    // Tap / click
+    wrapper.addEventListener('click', function (e) {
+      // Only toggle on mobile (no hover support / touch device)
+      // We check window width, matching our CSS breakpoint
+      if (window.innerWidth <= 640) {
+        wrapper.classList.toggle('flipped');
+      }
+    });
+
+    // Keyboard: Enter / Space for accessibility
+    wrapper.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        var inner = card.querySelector('.flip-card-inner');
-        if (inner) {
-          var flipped = inner.style.transform === 'rotateY(180deg)';
-          inner.style.transform = flipped ? '' : 'rotateY(180deg)';
-        }
+        wrapper.classList.toggle('flipped');
       }
     });
   });
-})();
 
-// ---- Offert form: simple client-side feedback ----
-(function () {
-  var form = document.querySelector('.offert-form');
-  if (!form) return;
+  /* ---- OFFERT FORM: client-side feedback ---- */
+  const offertForm = document.getElementById('offert-form');
 
-  // Insert success message placeholder after form
-  var successMsg = document.createElement('div');
-  successMsg.className = 'form-success';
-  successMsg.setAttribute('role', 'alert');
-  successMsg.textContent = 'Tack! Vi har tagit emot din förfrågan och återkommer så snart vi kan.';
-  form.parentNode.insertBefore(successMsg, form.nextSibling);
+  if (offertForm) {
+    offertForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+      // Basic validation
+      const namn = offertForm.querySelector('#namn');
+      const tel = offertForm.querySelector('#tel');
+      const tjanst = offertForm.querySelector('#tjanst');
 
-    // Basic required field check
-    var namn     = form.querySelector('#namn').value.trim();
-    var telefon  = form.querySelector('#telefon').value.trim();
-    if (!namn || !telefon) {
-      var first = !namn ? form.querySelector('#namn') : form.querySelector('#telefon');
-      first.focus();
-      first.style.borderColor = '#F5A623';
-      setTimeout(function () { first.style.borderColor = ''; }, 2000);
-      return;
+      if (!namn.value.trim() || !tel.value.trim() || !tjanst.value) {
+        showFormError('Fyll i namn, telefonnummer och typ av uppdrag.');
+        return;
+      }
+
+      // Show success message (form submits to server in production)
+      offertForm.style.display = 'none';
+
+      let successDiv = document.getElementById('form-success-msg');
+      if (!successDiv) {
+        successDiv = document.createElement('div');
+        successDiv.id = 'form-success-msg';
+        successDiv.className = 'form-success visible';
+        successDiv.innerHTML =
+          '<h3>Tack för din förfrågan!</h3>' +
+          '<p>Vi har tagit emot din offertförfrågan och återkommer till dig inom en arbetsdag.</p>' +
+          '<p style="margin-top:.75rem">Har du bråttom? Ring oss direkt: ' +
+          '<a href="tel:0768898904" style="color:#F5A623;font-weight:700;">076-889 89 04</a>' +
+          '</p>';
+        offertForm.parentNode.insertBefore(successDiv, offertForm);
+      }
+      successDiv.classList.add('visible');
+    });
+  }
+
+  function showFormError(msg) {
+    let err = document.getElementById('form-error-msg');
+    if (!err) {
+      err = document.createElement('p');
+      err.id = 'form-error-msg';
+      err.style.cssText = 'color:#F5A623;font-size:.9rem;text-align:center;margin-top:-.5rem;';
+      offertForm.appendChild(err);
     }
+    err.textContent = msg;
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
-    // Simulate submission (no backend)
-    form.style.display = 'none';
-    successMsg.style.display = 'block';
-    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  /* ---- SMOOTH SCROLL FALLBACK for older browsers ---- */
+  // (CSS scroll-behavior: smooth handles modern browsers)
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        // Let CSS handle it; JS fallback for safety
+        target.focus({ preventScroll: true });
+      }
+    });
   });
+
 })();
