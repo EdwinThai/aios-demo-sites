@@ -1,126 +1,58 @@
-/* ========================================
-   LEVEO BYGG AB — script.js
-   Vanilla JS: mobile nav, card flip toggle,
-   form submit feedback
-   ======================================== */
+/* =============================================
+   LEVEO BYGG AB — Vanilla JS
+   - Mobile nav toggle
+   - Card flip on tap (mobile)
+============================================= */
 
 (function () {
   'use strict';
 
-  /* ---- MOBILE NAV TOGGLE ---- */
-  const navToggle = document.querySelector('.nav-toggle');
-  const navList = document.querySelector('.nav-list');
+  /* ---------- MOBILE NAV ---------- */
+  var toggle = document.querySelector('.nav-toggle');
+  var navList = document.querySelector('.nav-list');
 
-  if (navToggle && navList) {
-    navToggle.addEventListener('click', function () {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      navToggle.classList.toggle('open');
-      navList.classList.toggle('open');
+  if (toggle && navList) {
+    toggle.addEventListener('click', function () {
+      var isOpen = navList.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Close nav when a link is clicked
     navList.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('open');
-        navList.classList.remove('open');
+        navList.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
-
-    // Close nav when clicking outside
-    document.addEventListener('click', function (e) {
-      if (!navToggle.contains(e.target) && !navList.contains(e.target)) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('open');
-        navList.classList.remove('open');
-      }
-    });
   }
 
-  /* ---- CARD FLIP: mobile tap toggle ---- */
-  // On mobile, CSS resets the 3D flip to stacked layout.
-  // We use the .flipped class to show/hide the back face.
-  const cardWrappers = document.querySelectorAll('.card-flip-wrapper');
+  /* ---------- CARD FLIP ON MOBILE (TAP) ----------
+     On touch/pointer devices without hover (mobile),
+     allow tapping a card to flip it.
+     A second tap on the back flips it back.
+  ------------------------------------------------- */
+  var isTouchDevice = window.matchMedia('(hover: none)').matches;
 
-  cardWrappers.forEach(function (wrapper) {
-    // Tap / click
-    wrapper.addEventListener('click', function (e) {
-      // Only toggle on mobile (no hover support / touch device)
-      // We check window width, matching our CSS breakpoint
-      if (window.innerWidth <= 640) {
-        wrapper.classList.toggle('flipped');
-      }
-    });
+  if (isTouchDevice) {
+    var cardWrappers = document.querySelectorAll('.card-wrapper');
 
-    // Keyboard: Enter / Space for accessibility
-    wrapper.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        wrapper.classList.toggle('flipped');
-      }
-    });
-  });
+    cardWrappers.forEach(function (wrapper) {
+      var card = wrapper.querySelector('.card');
+      if (!card) return;
 
-  /* ---- OFFERT FORM: client-side feedback ---- */
-  const offertForm = document.getElementById('offert-form');
-
-  if (offertForm) {
-    offertForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Basic validation
-      const namn = offertForm.querySelector('#namn');
-      const tel = offertForm.querySelector('#tel');
-      const tjanst = offertForm.querySelector('#tjanst');
-
-      if (!namn.value.trim() || !tel.value.trim() || !tjanst.value) {
-        showFormError('Fyll i namn, telefonnummer och typ av uppdrag.');
-        return;
-      }
-
-      // Show success message (form submits to server in production)
-      offertForm.style.display = 'none';
-
-      let successDiv = document.getElementById('form-success-msg');
-      if (!successDiv) {
-        successDiv = document.createElement('div');
-        successDiv.id = 'form-success-msg';
-        successDiv.className = 'form-success visible';
-        successDiv.innerHTML =
-          '<h3>Tack för din förfrågan!</h3>' +
-          '<p>Vi har tagit emot din offertförfrågan och återkommer till dig inom en arbetsdag.</p>' +
-          '<p style="margin-top:.75rem">Har du bråttom? Ring oss direkt: ' +
-          '<a href="tel:0768898904" style="color:#F5A623;font-weight:700;">076-889 89 04</a>' +
-          '</p>';
-        offertForm.parentNode.insertBefore(successDiv, offertForm);
-      }
-      successDiv.classList.add('visible');
+      // Disable CSS hover on touch devices via pointer-events trick —
+      // instead we drive everything via JS class
+      wrapper.addEventListener('click', function () {
+        // Check if any other card is flipped and reset it
+        cardWrappers.forEach(function (other) {
+          if (other !== wrapper) {
+            var otherCard = other.querySelector('.card');
+            if (otherCard) otherCard.classList.remove('is-flipped');
+          }
+        });
+        card.classList.toggle('is-flipped');
+      });
     });
   }
-
-  function showFormError(msg) {
-    let err = document.getElementById('form-error-msg');
-    if (!err) {
-      err = document.createElement('p');
-      err.id = 'form-error-msg';
-      err.style.cssText = 'color:#F5A623;font-size:.9rem;text-align:center;margin-top:-.5rem;';
-      offertForm.appendChild(err);
-    }
-    err.textContent = msg;
-    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  /* ---- SMOOTH SCROLL FALLBACK for older browsers ---- */
-  // (CSS scroll-behavior: smooth handles modern browsers)
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        // Let CSS handle it; JS fallback for safety
-        target.focus({ preventScroll: true });
-      }
-    });
-  });
 
 })();
