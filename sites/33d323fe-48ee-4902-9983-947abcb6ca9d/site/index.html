@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leveo Bygg AB – Snickeri, Måleri & Byggarbeten i Borås</title>
+  <meta name="description" content="Leveo Bygg AB utför snickeri, måleri, byggarbeten och lokalvård i Boråsregionen. Öppet måndag–lördag. Begär offert direkt – enkelt och utan kostnad.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ========== HEADER / NAV ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <!--FIELD:company_name-->
+        <span class="logo-text">Leveo Bygg AB</span>
+        <!--/FIELD:company_name-->
+      </div>
+      <nav class="main-nav" aria-label="Huvudnavigation">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Öppna meny">&#9776;</button>
+        <ul id="nav-menu" class="nav-list">
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#oppettider">Öppettider</a></li>
+          <li><a href="#omdomen">Omdömen</a></li>
+          <li><a href="#kontakt" class="nav-cta">Begär offert</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero" aria-label="Introduktion">
+      <div class="hero-texture"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">Borås &amp; omnejd</p>
+        <h1 class="hero-headline">Snickeri, måleri och bygg&shy;arbeten du kan lita på</h1>
+        <p class="hero-sub">Leveo Bygg AB utför renovering, tillbyggnad och löpande underhåll för privatpersoner och fastighetsägare i Boråsregionen. Öppet sex dagar i veckan – ring eller skicka en offertförfrågan, så hör vi av oss.</p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Begär offert</a>
+          <!--FIELD:phone-->
+          <a href="tel:+46768898904" class="btn btn-secondary">Ring 076-889 89 04</a>
+          <!--/FIELD:phone-->
+        </div>
+        <div class="hero-badge">
+          <!--FIELD:google_rating-->
+          <span class="stars" aria-label="5 av 5 stjärnor">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-text">5,0 på Google &middot; 4 recensioner</span>
+          <!--/FIELD:google_rating-->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TJÄNSTER ========== -->
+    <section class="section" id="tjanster" aria-labelledby="tjanster-rubrik">
+      <div class="container">
+        <h2 id="tjanster-rubrik" class="section-title">Vad vi gör</h2>
+        <p class="section-intro">Vi hanterar hela kedjan – från planka till puts – och tar uppdrag av alla storlekar.</p>
+        <!--FIELD:services-->
+        <div class="cards-grid">
+
+          <!-- Kort 1: Byggnadssnickeri -->
+          <div class="flip-card" tabindex="0" aria-label="Byggnadssnickeri – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect x="8" y="36" width="48" height="8" rx="2" fill="#F5A623"/><rect x="16" y="20" width="32" height="16" rx="2" fill="#8C9199"/><rect x="24" y="12" width="16" height="10" rx="2" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="card-title">Byggnads&shy;snickeri</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+              <div class="flip-back">
+                <h3 class="card-title-back">Byggnads&shy;snickeri</h3>
+                <p>Inredning, fönsterbyten, dörrpartier, golv och övriga snickerier i din bostad eller fastighet.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#kontakt" class="btn btn-small">Begär offert</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kort 2: Byggarbeten -->
+          <div class="flip-card" tabindex="0" aria-label="Byggarbeten – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect x="10" y="44" width="44" height="8" rx="2" fill="#F5A623"/><polygon points="32,8 10,44 54,44" fill="#8C9199"/><rect x="28" y="30" width="8" height="14" rx="1" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="card-title">Bygg&shy;arbeten</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+              <div class="flip-back">
+                <h3 class="card-title-back">Bygg&shy;arbeten</h3>
+                <p>Tillbyggnader, renoveringar och annan specialiserad bygg- och anläggningsverksamhet.</p>
+                <p class="price-placeholder">Företagets priser här</p>
+                <a href="#kontakt" class="btn btn-small">Begär offert</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kort 3: Måleri -->
+          <div class="flip-card" tabindex="0" aria-label="Måleriarbeten – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect x="28" y="8" width="8" height="32" rx="3" fill="#8C9199"/><rect x="18" y="36" width="28" height="12" rx="4" fill="#F5A623"/><rect x="22" y="48" width="20" height="8" rx="2" fill="#8C9199"/></svg>
+                </div>
+                <h3 class="card-title">Måleri</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+              <div class="flip-back">
+                <h3 class="card-title-back">Måleri</h3>
+                <p>Invändig och utvändig målning av bostäder och lokaler – med noggrann förarbete och ett rent resultat.</p>
+                <p class="price-placeholder">Företagets priser här</p>
+                <a href="#kontakt" class="btn btn-small">Begär offert</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kort 4: Lokalvård -->
+          <div class="flip-card" tabindex="0" aria-label="Lokalvård – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48"><ellipse cx="32" cy="52" rx="20" ry="6" fill="#F5A623" opacity="0.4"/><rect x="26" y="16" width="12" height="36" rx="4" fill="#8C9199"/><ellipse cx="32" cy="16" rx="12" ry="8" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="card-title">Lokalvård</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+              <div class="flip-back">
+                <h3 class="card-title-back">Lokalvård</h3>
+                <p>Professionell städning och löpande lokalvård för kontor, bostäder och fastigheter.</p>
+                <p class="price-placeholder">Företagets priser här</p>
+                <a href="#kontakt" class="btn btn-small">Begär offert</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/FIELD:services-->
+      </div>
+    </section>
+
+    <!-- ========== OM OSS ========== -->
+    <section class="section section-dark" id="om-oss" aria-labelledby="om-oss-rubrik">
+      <div class="container om-grid">
+        <div class="om-text">
+          <h2 id="om-oss-rubrik" class="section-title">Om Leveo Bygg</h2>
+          <p class="lead">Vi är ett Borås-baserat byggföretag som utför snickeri, måleri och lokalvård för privatpersoner, fastighetsägare och bostadsrättsföreningar i regionen.</p>
+          <p>Varje uppdrag hanteras av hantverkare som är på plats – inte av en koordinator som vidarekopplar jobbet. Det innebär kortare kommunikationsvägar, tydligare ansvar och ett slutresultat du kan granska direkt med den som utfört arbetet.</p>
+          <p>Vi tar uppdrag av alla storlekar: från ett enstaka fönsterbyte till en komplett renovering. Offertförfrågan kostar ingenting och är alltid det enkla första steget.</p>
+          <a href="#kontakt" class="btn btn-primary">Begär offert utan kostnad</a>
+        </div>
+        <div class="om-facts">
+          <div class="fact-block">
+            <span class="fact-icon" aria-hidden="true">&#128205;</span>
+            <div>
+              <strong>Verksamma i</strong>
+              <p>Borås med omnejd</p>
+            </div>
+          </div>
+          <div class="fact-block">
+            <span class="fact-icon" aria-hidden="true">&#128337;</span>
+            <div>
+              <strong>Öppet sex dagar</strong>
+              <p>Måndag–lördag, se öppettider nedan</p>
+            </div>
+          </div>
+          <div class="fact-block">
+            <span class="fact-icon" aria-hidden="true">&#9733;</span>
+            <div>
+              <!--FIELD:google_rating-->
+              <strong>5,0 av 5 på Google</strong>
+              <p>4 lämnade recensioner</p>
+              <!--/FIELD:google_rating-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ÖPPETTIDER ========== -->
+    <section class="section" id="oppettider" aria-labelledby="oppettider-rubrik">
+      <div class="container">
+        <h2 id="oppettider-rubrik" class="section-title">Öppettider</h2>
+        <p class="section-intro">Vi är tillgängliga sex dagar i veckan – ring eller skicka en offertförfrågan under öppettid.</p>
+        <!--FIELD:opening_hours-->
+        <div class="hours-table-wrap">
+          <table class="hours-table" aria-label="Öppettider för Leveo Bygg AB">
+            <tbody>
+              <tr><th scope="row">Måndag</th><td>07:30–18:00</td></tr>
+              <tr><th scope="row">Tisdag</th><td>07:30–18:00</td></tr>
+              <tr><th scope="row">Onsdag</th><td>07:30–18:00</td></tr>
+              <tr><th scope="row">Torsdag</th><td>07:30–18:00</td></tr>
+              <tr><th scope="row">Fredag</th><td>07:30–18:00</td></tr>
+              <tr><th scope="row">Lördag</th><td>08:00–17:00</td></tr>
+              <tr class="closed"><th scope="row">Söndag</th><td>Stängt</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!--/FIELD:opening_hours-->
+      </div>
+    </section>
+
+    <!-- ========== SOCIALT BEVIS / OMDÖMEN ========== -->
+    <section class="section section-dark" id="omdomen" aria-labelledby="omdomen-rubrik">
+      <div class="container">
+        <h2 id="omdomen-rubrik" class="section-title">Vad kunderna säger</h2>
+        <!--FIELD:google_rating-->
+        <div class="rating-summary">
+          <div class="big-rating" aria-label="5 av 5 stjärnor på Google">
+            <span class="rating-number">5,0</span>
+            <span class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-source">Google-betyg &middot; 4 recensioner</span>
+          </div>
+        </div>
+        <!--/FIELD:google_rating-->
+        <div class="reviews-note">
+          <p>Leveo Bygg AB har ett toppbetyg på Google med samtliga kunder nöjda. Läs recensionerna direkt på Google Maps eller lämna ditt eget omdöme efter avslutat uppdrag.</p>
+          <a href="https://www.google.com/maps/search/Leveo+Bygg+AB+Bor%C3%A5s" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Se recensioner på Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== OFFERT / CTA ========== -->
+    <section class="section cta-section" id="offert" aria-labelledby="offert-rubrik">
+      <div class="container cta-inner">
+        <h2 id="offert-rubrik" class="section-title">Redo att sätta igång?</h2>
+        <p>Berätta vad du behöver hjälp med – vi återkommer med en tydlig offert utan dolda kostnader. Inget bindande, inga konstigheter.</p>
+        <div class="cta-buttons">
+          <a href="#kontakt" class="btn btn-primary btn-large">Skicka offertförfrågan</a>
+          <!--FIELD:phone-->
+          <a href="tel:+46768898904" class="btn btn-secondary btn-large">Ring oss: 076-889 89 04</a>
+          <!--/FIELD:phone-->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== KONTAKT ========== -->
+    <section class="section section-dark" id="kontakt" aria-labelledby="kontakt-rubrik">
+      <div class="container">
+        <h2 id="kontakt-rubrik" class="section-title">Kontakta oss</h2>
+        <div class="kontakt-grid">
+
+          <!-- Kontaktuppgifter -->
+          <div class="kontakt-info">
+            <h3 class="kontakt-sub">Kontaktuppgifter</h3>
+            <ul class="kontakt-list">
+              <li>
+                <span class="ki-label">Telefon</span>
+                <!--FIELD:phone-->
+                <a href="tel:+46768898904" class="ki-value">076-889 89 04</a>
+                <!--/FIELD:phone-->
+              </li>
+              <li>
+                <span class="ki-label">E-post</span>
+                <!--FIELD:email-->
+                <span class="ki-value ki-missing">E-postadress saknas – ring eller använd formuläret</span>
+                <!--/FIELD:email-->
+              </li>
+              <li>
+                <span class="ki-label">Adress</span>
+                <!--FIELD:address-->
+                <address class="ki-value">Tegnérgatan 11<br>503 43 Borås</address>
+                <!--/FIELD:address-->
+              </li>
+              <li>
+                <span class="ki-label">Webb</span>
+                <!--FIELD:website-->
+                <span class="ki-value ki-missing">Ingen webbplats registrerad</span>
+                <!--/FIELD:website-->
+              </li>
+              <li>
+                <span class="ki-label">Instagram</span>
+                <!--FIELD:instagram-->
+                <span class="ki-value ki-missing">Instagram-konto ej bekräftat – kontakta oss för social media</span>
+                <!--/FIELD:instagram-->
+              </li>
+              <li>
+                <span class="ki-label">Facebook</span>
+                <!--FIELD:facebook-->
+                <span class="ki-value ki-missing">Ingen Facebook-sida hittad</span>
+                <!--/FIELD:facebook-->
+              </li>
+            </ul>
+            <div class="kontakt-hours">
+              <h3 class="kontakt-sub">Öppettider (kort)</h3>
+              <!--FIELD:opening_hours-->
+              <p>Mån–Fre: 07:30–18:00 &nbsp;|&nbsp; Lör: 08:00–17:00 &nbsp;|&nbsp; Sön: Stängt</p>
+              <!--/FIELD:opening_hours-->
+            </div>
+          </div>
+
+          <!-- Offertformulär -->
+          <div class="kontakt-form-wrap">
+            <h3 class="kontakt-sub">Skicka en offertförfrågan</h3>
+            <!--FIELD:booking_url-->
+            <p class="form-note">Inget bokningssystem registrerat – använd formuläret eller ring oss direkt.</p>
+            <!--/FIELD:booking_url-->
+            <form class="offert-form" novalidate aria-label="Offertförfrågan">
+              <div class="form-group">
+                <label for="namn">Ditt namn</label>
+                <input type="text" id="namn" name="namn" autocomplete="name" required placeholder="Anna Andersson">
+              </div>
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input type="tel" id="telefon" name="telefon" autocomplete="tel" required placeholder="070-000 00 00">
+              </div>
+              <div class="form-group">
+                <label for="tjanst">Typ av uppdrag</label>
+                <select id="tjanst" name="tjanst">
+                  <option value="">Välj tjänst…</option>
+                  <option value="snickeri">Byggnadssnickeri</option>
+                  <option value="bygg">Byggarbeten</option>
+                  <option value="maleri">Måleri</option>
+                  <option value="lokalvard">Lokalvård</option>
+                  <option value="ovrigt">Övrigt</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="meddelande">Beskriv uppdraget</label>
+                <textarea id="meddelande" name="meddelande" rows="4" placeholder="Berätta kort om vad som ska göras, var och gärna önskad tidsperiod."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Skicka förfrågan</button>
+              <p class="form-disclaimer">Att skicka en förfrågan är kostnadsfritt och inte bindande.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <!--FIELD:company_name-->
+        <span class="footer-logo">Leveo Bygg AB</span>
+        <!--/FIELD:company_name-->
+        <p class="footer-tagline">Snickeri &middot; Måleri &middot; Byggarbeten &middot; Lokalvård</p>
+      </div>
+      <div class="footer-meta">
+        <!--FIELD:address-->
+        <p>Tegnérgatan 11, 503 43 Borås</p>
+        <!--/FIELD:address-->
+        <!--FIELD:phone-->
+        <p><a href="tel:+46768898904">076-889 89 04</a></p>
+        <!--/FIELD:phone-->
+        <!--FIELD:opening_hours-->
+        <p>Öppet mån–fre 07:30–18:00, lör 08:00–17:00</p>
+        <!--/FIELD:opening_hours-->
+      </div>
+      <p class="footer-copy">&copy; 2025 Leveo Bygg AB</p>
+    </div>
+  </footer>
+
+</body>
+</html>
