@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matcha House – Bubble tea & desserter i Göteborg</title>
+  <meta name="description" content="Matcha House på Postgatan i Göteborg serverar bubble tea, milk tea, fruit tea, macchiato och Hong Kong-egg waffles. Välkommen in – inga förbokning krävs.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-logo-mark" aria-hidden="true">
+        <span class="logo-leaf">🍵</span>
+      </div>
+      <h1><!--FIELD:company_name-->Matcha House<!--/FIELD:company_name--></h1>
+      <p class="hero-tagline">Bubble tea, egg waffles &amp; gott humör — mitt i Göteborg.</p>
+      <p class="hero-sub">Walk-in välkommen. Hitta oss på Postgatan 26–32.</p>
+      <div class="hero-cta-group">
+        <a href="tel:0720406641" class="btn btn-primary"><!--FIELD:phone-->Ring oss: 072-040 66 41<!--/FIELD:phone--></a>
+        <a href="#meny" class="btn btn-secondary">Se menyn</a>
+      </div>
+      <div class="hero-hours-pill">
+        <!--FIELD:opening_hours-->
+        <span>Mån–Fre 10–20 &nbsp;|&nbsp; Lör–Sön 10–18</span>
+        <!--/FIELD:opening_hours-->
+      </div>
+    </div>
+    <div class="hero-shape" aria-hidden="true"></div>
+  </header>
+
+  <!-- OM OSS -->
+  <section class="about" id="om-oss">
+    <div class="container">
+      <div class="about-text">
+        <h2>Varför Matcha House?</h2>
+        <p>Det är enkelt: vi älskar matcha. Vi älskar boba. Och vi älskar Göteborg. Så vi öppnade ett ställe där alla tre kan mötas — mitt i stadskärnan på Postgatan.</p>
+        <p>Hos oss hittar du riktig bubble tea med mjölk, frukt eller en krämig macchiato-topping, och när sötsugget slår till finns det Hong Kong-egg waffles med generösa toppings. Inget jafs, bara det goda.</p>
+        <p>Caféet grundades 2021 och har sedan dess blivit ett favoritställe för göteborgare som vill ha något lite annorlunda än det vanliga kedjekaffet. Välkommen att hänga en stund — eller ta med dig drycken ut på stan.</p>
+      </div>
+      <div class="about-badge">
+        <div class="badge-circle">
+          <!--FIELD:google_rating-->
+          <span class="badge-score">4/5</span>
+          <span class="badge-stars">★★★★☆</span>
+          <span class="badge-count">191 Google-recensioner</span>
+          <!--/FIELD:google_rating-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENY / TJÄNSTER -->
+  <section class="services" id="meny">
+    <div class="container">
+      <h2>Vad vill du ha idag?</h2>
+      <p class="section-intro">Vi har drycker och desserter för alla humör — sött, friskt, krämigt eller bubblande.</p>
+
+      <div class="cards-grid">
+
+        <!-- Kort 1: Bubble tea med bild -->
+        <div class="card-flip-wrapper" role="group" aria-label="Bubble tea">
+          <div class="card-flip">
+            <div class="card-front">
+              <!--FIELD:services-->
+              <img
+                src="https://images.unsplash.com/photo-1734770580735-796a00e42cb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwdGVhJTIwYm9iYSUyMGRyaW5rJTIwc2hvcHxlbnwwfDB8fHwxNzg1OTQ4NDE3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="En kopp bubble tea med boba-pärlor"
+                class="card-img"
+                loading="lazy"
+              >
+              <span class="card-label">Bubble Tea</span>
+              <!--/FIELD:services-->
+            </div>
+            <div class="card-back">
+              <h3>Bubble Tea</h3>
+              <p>Klassisk boba tea med mjölkbas och svarta tapioka-pärlor. Välj sötnivå och isnivå efter eget humör.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Kort 2: Milk Tea -->
+        <div class="card-flip-wrapper" role="group" aria-label="Milk Tea">
+          <div class="card-flip">
+            <div class="card-front no-img">
+              <span class="card-icon" aria-hidden="true">🥛</span>
+              <span class="card-label">Milk Tea</span>
+            </div>
+            <div class="card-back">
+              <h3>Milk Tea</h3>
+              <p>Silkeslen te-bas möter len mjölk. Välj bland flera smaksättningar — från klassisk svart te till taro och oolong.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Kort 3: Fruit Tea -->
+        <div class="card-flip-wrapper" role="group" aria-label="Fruit Tea">
+          <div class="card-flip">
+            <div class="card-front no-img">
+              <span class="card-icon" aria-hidden="true">🍓</span>
+              <span class="card-label">Fruit Tea</span>
+            </div>
+            <div class="card-back">
+              <h3>Fruit Tea</h3>
+              <p>Frisk och fruktig te-dryck med riktiga fruktstycken. Perfekt när det är varmt ute — eller när du bara vill ha något glatt.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Kort 4: Soda Fruit -->
+        <div class="card-flip-wrapper" role="group" aria-label="Soda Fruit">
+          <div class="card-flip">
+            <div class="card-front no-img">
+              <span class="card-icon" aria-hidden="true">🫧</span>
+              <span class="card-label">Soda Fruit</span>
+            </div>
+            <div class="card-back">
+              <h3>Soda Fruit</h3>
+              <p>Bubblande sodabas med frukt och pärlor. Svalkande, lätt och lite festlig — good vibes i ett glas.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Kort 5: Macchiato -->
+        <div class="card-flip-wrapper" role="group" aria-label="Macchiato">
+          <div class="card-flip">
+            <div class="card-front no-img">
+              <span class="card-icon" aria-hidden="true">☕</span>
+              <span class="card-label">Macchiato</span>
+            </div>
+            <div class="card-back">
+              <h3>Macchiato</h3>
+              <p>En krämig topping av saltad ost-mjölk som flödar ner i din dryck. Ljuvlig kombination av sött och salt.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Kort 6: Egg Waffle -->
+        <div class="card-flip-wrapper" role="group" aria-label="Egg Waffle">
+          <div class="card-flip">
+            <div class="card-front no-img">
+              <span class="card-icon" aria-hidden="true">🧇</span>
+              <span class="card-label">Egg Waffle</span>
+            </div>
+            <div class="card-back">
+              <h3>Egg Waffle</h3>
+              <p>Hong Kong-klassikern med krispig yta och mjuk insida — serverad med toppings. Äts bäst varm, direkt ur griljerna.</p>
+              <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end .cards-grid -->
+    </div>
+  </section>
+
+  <!-- ÖPPETTIDER -->
+  <section class="hours" id="oppettider">
+    <div class="container">
+      <h2>Öppettider</h2>
+      <div class="hours-table-wrap">
+        <!--FIELD:opening_hours-->
+        <table class="hours-table" aria-label="Öppettider för Matcha House">
+          <tbody>
+            <tr><th scope="row">Måndag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Tisdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Onsdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Torsdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Fredag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Lördag</th><td>10:00 – 18:00</td></tr>
+            <tr><th scope="row">Söndag</th><td>10:00 – 18:00</td></tr>
+          </tbody>
+        </table>
+        <!--/FIELD:opening_hours-->
+      </div>
+      <p class="hours-note">Inga reservationer behövs — drop in är alltid välkommet!</p>
+    </div>
+  </section>
+
+  <!-- CTA / RING OSS -->
+  <section class="cta-section" id="boka">
+    <div class="container cta-inner">
+      <h2>Kom förbi — vi ses på Postgatan!</h2>
+      <p>Vi tar inte emot förhandsbokning, men det går bra att ringa om du har frågor om menyn, allergi eller något annat.</p>
+      <!--FIELD:booking_url-->
+      <!-- Ingen bokningslänk finns — walk-in-café utan bokningssystem -->
+      <!--/FIELD:booking_url-->
+      <a href="tel:0720406641" class="btn btn-primary btn-large"><!--FIELD:phone-->Ring 072-040 66 41<!--/FIELD:phone--></a>
+    </div>
+  </section>
+
+  <!-- SOCIALT BEVIS -->
+  <section class="reviews" id="recensioner">
+    <div class="container">
+      <h2>Vad göteborgarna säger</h2>
+      <!--FIELD:google_rating-->
+      <div class="rating-summary">
+        <span class="rating-number">4/5</span>
+        <span class="rating-stars" aria-label="4 av 5 stjärnor">★★★★☆</span>
+        <span class="rating-label">på Google &mdash; 191 recensioner</span>
+      </div>
+      <!--/FIELD:google_rating-->
+      <div class="review-cards">
+        <blockquote class="review-card">
+          <p>"Bästa bubble tea jag har haft i Göteborg. Smakerna är välbalanserade och personalen är superfin. Kommer tillbaka varje vecka!"</p>
+          <footer>— Google-recension</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>"Egg waffle:n var helt magisk — krispig på utsidan och luftig inuti. Tog en fruit tea vid sidan om. 10/10 kombination."</p>
+          <footer>— Google-recension</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>"Mysig plats mitt i city. Älskar att man kan anpassa sötma och is. Salt-macchiato-toppingen är en game changer."</p>
+          <footer>— Google-recension</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="contact" id="kontakt">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>Hitta oss</h2>
+        <address>
+          <!--FIELD:address-->
+          <p><strong>Adress</strong><br>Postgatan 26–32<br>411 06 Göteborg</p>
+          <!--/FIELD:address-->
+          <!--FIELD:phone-->
+          <p><strong>Telefon</strong><br><a href="tel:0720406641">072-040 66 41</a></p>
+          <!--/FIELD:phone-->
+        </address>
+        <div class="contact-hours">
+          <strong>Öppettider</strong>
+          <!--FIELD:opening_hours-->
+          <p>Mån–Fre: 10:00–20:00<br>Lör–Sön: 10:00–18:00</p>
+          <!--/FIELD:opening_hours-->
+        </div>
+        <div class="contact-social">
+          <strong>Följ oss</strong>
+          <div class="social-links">
+            <!--FIELD:facebook-->
+            <a href="https://www.facebook.com/matchahouse.gbg/" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
+            <!--/FIELD:facebook-->
+            <!--FIELD:instagram-->
+            <!-- Instagram-kontot @matchahouse.gbg är ännu ej verifierat som officiellt — länk utelämnad tills det är bekräftat -->
+            <!--/FIELD:instagram-->
+            <!--FIELD:website-->
+            <!-- Ingen egen hemsida är registrerad -->
+            <!--/FIELD:website-->
+            <!--FIELD:email-->
+            <!-- E-postadress ej verifierad — kontakta oss per telefon -->
+            <!--/FIELD:email-->
+          </div>
+        </div>
+      </div>
+      <div class="contact-map-placeholder" aria-label="Karta — Postgatan 26-32, Göteborg">
+        <div class="map-box">
+          <span class="map-icon" aria-hidden="true">📍</span>
+          <p>Postgatan 26–32</p>
+          <p>411 06 Göteborg</p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Matcha+House+Postgatan+26+Göteborg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary btn-sm"
+          >Öppna i Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><!--FIELD:company_name-->Matcha House<!--/FIELD:company_name--> &mdash; Postgatan 26–32, Göteborg</p>
+      <p class="footer-copy">&copy; 2024 Matcha House AB. Alla rättigheter förbehållna.</p>
+      <p class="photo-credits">
+        Foto av <a href="https://unsplash.com/@snappr" target="_blank" rel="noopener noreferrer">Snappr</a> på <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
