@@ -1,32 +1,36 @@
-// Matcha House – script.js
-// Mobile touch support for card-flip sections
-// On devices without hover, a tap toggles the flip.
-
+// ===== MOBILE NAV TOGGLE =====
 (function () {
-  'use strict';
+  var toggle = document.querySelector('.nav__toggle');
+  var list   = document.querySelector('.nav__list');
+  if (!toggle || !list) return;
 
-  // Only activate touch toggle when the device has no fine pointer (e.g. touch screens)
-  var isTouchDevice = window.matchMedia('(hover: none)').matches;
+  toggle.addEventListener('click', function () {
+    var expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    list.classList.toggle('open', !expanded);
+  });
 
-  if (!isTouchDevice) return;
-
-  var wrappers = document.querySelectorAll('.card-flip-wrapper');
-
-  wrappers.forEach(function (wrapper) {
-    var inner = wrapper.querySelector('.card-flip');
-    if (!inner) return;
-
-    wrapper.addEventListener('click', function () {
-      inner.classList.toggle('flipped');
-    });
-
-    // Keyboard accessibility: allow Enter / Space to flip
-    wrapper.setAttribute('tabindex', '0');
-    wrapper.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        inner.classList.toggle('flipped');
-      }
+  // Close nav on link click (mobile)
+  list.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      list.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
     });
   });
-}());
+})();
+
+// ===== MOBILE CARD TAP-TO-FLIP =====
+// On touch devices there is no :hover — allow tap to toggle flip
+(function () {
+  function isTouchDevice() {
+    return window.matchMedia('(hover: none)').matches;
+  }
+
+  if (!isTouchDevice()) return;
+
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      card.classList.toggle('flipped');
+    });
+  });
+})();
