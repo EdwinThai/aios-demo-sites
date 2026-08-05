@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matcha House – Bubble Tea & Desserter i Göteborg</title>
+  <meta name="description" content="Matcha House på Postgatan i Göteborg – din destination för bubble tea, milk tea, fruit tea och Hong Kong-desserter som egg waffle. Välkommen in!">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="hem">
+    <div class="hero__image-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1739723745132-97df9db49db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8Y296eSUyMGNhZmUlMjBpbnRlcmlvcnxlbnwwfDB8fHwxNzg1OTQ5ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+        alt="Mysig kafémiljö"
+        class="hero__bg-img">
+      <span class="hero__img-credit">Foto av <a href="https://unsplash.com/@tashakostyuk">Tasha Kostyuk</a> på <a href="https://unsplash.com">Unsplash</a></span>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <p class="hero__eyebrow">Postgatan 26–32, Göteborg</p>
+      <h1 class="hero__title"><!--FIELD:company_name-->Matcha House<!--/FIELD:company_name--></h1>
+      <p class="hero__sub">Bubble tea, milk tea, fruit tea och Hong Kong-desserter — mitt i stan.</p>
+      <!--FIELD:booking_url-->
+      <a href="tel:0720406641" class="btn btn--primary hero__cta">Ring oss: 072-040 66 41</a>
+      <!--/FIELD:booking_url-->
+      <div class="hero__hours">
+        <!--FIELD:opening_hours-->
+        <span>Mån–Fre 10–20 &nbsp;|&nbsp; Lör–Sön 10–18</span>
+        <!--/FIELD:opening_hours-->
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== NAVIGERING ========== -->
+  <nav class="nav" role="navigation" aria-label="Huvudmeny">
+    <div class="container nav__inner">
+      <a href="#hem" class="nav__logo"><!--FIELD:company_name-->Matcha House<!--/FIELD:company_name--></a>
+      <button class="nav__toggle" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__list">
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#meny">Meny</a></li>
+        <li><a href="#oppettider">Öppettider</a></li>
+        <li><a href="#recensioner">Recensioner</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== OM OSS ========== -->
+    <section class="section om-oss" id="om-oss">
+      <div class="container om-oss__inner">
+        <div class="om-oss__text">
+          <h2>Välkommen hit</h2>
+          <p>Matcha House startade med en enkel idé: att ge Göteborg ett ställe där bubble tea tas på allvar och egg waffle serveras som den ska — krispig utanpå, luftig inuti, med toppings som faktiskt håller ihop alltihop.</p>
+          <p>Vi håller till på Postgatan i hjärtat av stan. Beställ din milk tea med önskad sötma och isgrad, välj en fruktig soda fruit när solen tittar fram, eller låt dig frestas av en macchiato-lager i din boba. Det finns något för alla — och vi är genuint glada att se dig, oavsett om det är första eller femtionde gången.</p>
+          <p>Inget krångel, ingen kö-app — bara kom in.</p>
+        </div>
+        <div class="om-oss__badge">
+          <div class="badge">
+            <div class="badge__img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8bWF0Y2hhJTIwdGVhJTIwYm9iYSUyMGN1cHxlbnwwfDB8fHwxNzg1OTQ5ODk1fDA&ixlib=rb-4.1.0&q=80&w=400"
+                alt="Matcha bubble tea"
+                class="badge__img">
+            </div>
+            <span class="badge__text">Matcha &amp; boba sedan 2021</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MENY / TJÄNSTER ========== -->
+    <section class="section meny" id="meny">
+      <div class="container">
+        <h2 class="section__title">Vad vi serverar</h2>
+        <p class="section__sub">Från klassisk milk tea till Hong Kong-egg waffle — här är ett smakprov på menyn.</p>
+        <!--FIELD:services-->
+        <div class="cards">
+
+          <!-- Bubble Tea -->
+          <div class="card" data-index="0">
+            <div class="card__inner">
+              <div class="card__front">
+                <img
+                  src="https://images.unsplash.com/photo-1734770580735-796a00e42cb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwdGVhJTIwYm9iYSUyMGRyaW5rJTIwc2hvcHxlbnwwfDB8fHwxNzg1OTQ4NDE3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Bubble tea boba"
+                  loading="lazy">
+                <div class="card__front-label">Bubble Tea &amp; Milk Tea</div>
+              </div>
+              <div class="card__back">
+                <h3>Bubble Tea &amp; Milk Tea</h3>
+                <p>Klassisk milk tea med mjölkpulver eller fruktig flavoured milk tea — välj pärlor, sötma och isgrad precis som du vill ha det.</p>
+                <!--FIELD:prices--><p class="card__price">Företagets priser här</p><!--/FIELD:prices-->
+              </div>
+            </div>
+            <p class="card__photo-credit">Foto av <a href="https://unsplash.com/@snappr">Snappr</a> på <a href="https://unsplash.com">Unsplash</a></p>
+          </div>
+
+          <!-- Fruit Tea -->
+          <div class="card" data-index="1">
+            <div class="card__inner">
+              <div class="card__front">
+                <img
+                  src="https://images.unsplash.com/photo-1767627942883-0a6443183f66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aWNlZCUyMGZydWl0JTIwdGVhJTIwZHJpbmslMjBjYWZlfGVufDB8MHx8fDE3ODU5NDk4OTR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Fruit tea dryck"
+                  loading="lazy">
+                <div class="card__front-label">Fruit Tea &amp; Soda Fruit</div>
+              </div>
+              <div class="card__back">
+                <h3>Fruit Tea &amp; Soda Fruit</h3>
+                <p>Fräscha fruktteer och sprudlande soda fruit-varianter — ett perfekt val när du vill ha något lättsamt och färgglatt.</p>
+                <!--FIELD:prices--><p class="card__price">Företagets priser här</p><!--/FIELD:prices-->
+              </div>
+            </div>
+            <p class="card__photo-credit">Foto av <a href="https://unsplash.com/@dvhoang2106">Đào Việt Hoàng</a> på <a href="https://unsplash.com">Unsplash</a></p>
+          </div>
+
+          <!-- Macchiato -->
+          <div class="card" data-index="2">
+            <div class="card__inner">
+              <div class="card__front">
+                <img
+                  src="https://images.unsplash.com/photo-1507915135761-41a0a222c709?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8Y29mZmVlJTIwc2hvcCUyMGJhcmlzdGElMjBlc3ByZXNzb3xlbnwwfDB8fHwxNzg1OTQ5ODk0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Macchiato kafé"
+                  loading="lazy">
+                <div class="card__front-label">Macchiato</div>
+              </div>
+              <div class="card__back">
+                <h3>Macchiato</h3>
+                <p>En len macchiato-lager som flödar ner genom din boba-dryck. Kontrasten av mjölk och te i varje klunk.</p>
+                <!--FIELD:prices--><p class="card__price">Företagets priser här</p><!--/FIELD:prices-->
+              </div>
+            </div>
+            <p class="card__photo-credit">Foto av <a href="https://unsplash.com/@brookecagle">Brooke Cagle</a> på <a href="https://unsplash.com">Unsplash</a></p>
+          </div>
+
+          <!-- Egg Waffle -->
+          <div class="card" data-index="3">
+            <div class="card__inner">
+              <div class="card__front">
+                <img
+                  src="https://images.unsplash.com/photo-1562513872-634b8fae6dbe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8d2FmZmxlJTIwZGVzc2VydCUyMGNhZmUlMjB0b3BwaW5nc3xlbnwwfDB8fHwxNzg1OTQ5ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Egg waffle dessert"
+                  loading="lazy">
+                <div class="card__front-label">Egg Waffle</div>
+              </div>
+              <div class="card__back">
+                <h3>Egg Waffle (Hong Kong-stil)</h3>
+                <p>Bubblig, gyllene och nybakad — toppad med det du väljer. Hong Kong på Postgatan, enkelt uttryckt.</p>
+                <!--FIELD:prices--><p class="card__price">Företagets priser här</p><!--/FIELD:prices-->
+              </div>
+            </div>
+            <p class="card__photo-credit">Foto av <a href="https://unsplash.com/@photograaapheee">Yuvraj Sachdeva</a> på <a href="https://unsplash.com">Unsplash</a></p>
+          </div>
+
+        </div>
+        <!--/FIELD:services-->
+      </div>
+    </section>
+
+    <!-- ========== ÖPPETTIDER ========== -->
+    <section class="section oppettider" id="oppettider">
+      <div class="container oppettider__inner">
+        <h2>Öppettider</h2>
+        <!--FIELD:opening_hours-->
+        <table class="hours-table">
+          <tbody>
+            <tr><th scope="row">Måndag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Tisdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Onsdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Torsdag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Fredag</th><td>10:00 – 20:00</td></tr>
+            <tr><th scope="row">Lördag</th><td>10:00 – 18:00</td></tr>
+            <tr><th scope="row">Söndag</th><td>10:00 – 18:00</td></tr>
+          </tbody>
+        </table>
+        <!--/FIELD:opening_hours-->
+        <p class="oppettider__note">Inga bokningar behövs — bara kom in som det passar dig.</p>
+      </div>
+    </section>
+
+    <!-- ========== RECENSIONER / SOCIALT BEVIS ========== -->
+    <section class="section recensioner" id="recensioner">
+      <div class="container">
+        <h2 class="section__title">Vad Göteborg tycker</h2>
+        <!--FIELD:google_rating-->
+        <div class="rating-badge">
+          <span class="rating-badge__stars" aria-label="4 av 5 stjärnor">★★★★☆</span>
+          <span class="rating-badge__score">4/5</span>
+          <span class="rating-badge__count">baserat på 191 Google-recensioner</span>
+        </div>
+        <!--/FIELD:google_rating-->
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p>"Bästa bubble tea-stället i Göteborg utan tvekan. Egg waffle är en annan nivå!"</p>
+            <footer>— Google-recension</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"Mysig liten pärla på Postgatan. Personalen är trevlig och drinkarna är helt perfekta."</p>
+            <footer>— Google-recension</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"Älskar att man kan ange sötma och isgrad. Fruit tea med pärlor är min nya go-to."</p>
+            <footer>— Google-recension</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA / BESÖK OSS ========== -->
+    <section class="section cta-section" id="besok">
+      <div class="container cta-section__inner">
+        <h2>Kom och hälsa på</h2>
+        <p>Ingen bokning, inget krångel. Du är välkommen in precis som du är — ta med kompisar, ta med familjen, eller kom ensam med en bok.</p>
+        <!--FIELD:booking_url-->
+        <a href="tel:0720406641" class="btn btn--primary">Ring oss: 072-040 66 41</a>
+        <!--/FIELD:booking_url-->
+        <!--FIELD:address-->
+        <p class="cta-section__address">Vi finns på <strong>Postgatan 26–32, 411 06 Göteborg</strong></p>
+        <!--/FIELD:address-->
+      </div>
+    </section>
+
+    <!-- ========== KONTAKT ========== -->
+    <section class="section kontakt" id="kontakt">
+      <div class="container kontakt__grid">
+
+        <div class="kontakt__block">
+          <h2>Hitta hit</h2>
+          <!--FIELD:address-->
+          <address>
+            Matcha House<br>
+            Postgatan 26–32<br>
+            411 06 Göteborg
+          </address>
+          <!--/FIELD:address-->
+          <!--FIELD:phone-->
+          <p><a href="tel:0720406641" class="kontakt__phone">072-040 66 41</a></p>
+          <!--/FIELD:phone-->
+          <!--FIELD:email--><a href="mailto:nhatlinh041195@gmail.com">nhatlinh041195@gmail.com</a><!--/FIELD:email-->
+        </div>
+
+        <div class="kontakt__block">
+          <h3>Öppettider</h3>
+          <!--FIELD:opening_hours-->
+          <ul class="kontakt__hours">
+            <li><span>Mån–Fre</span><span>10:00 – 20:00</span></li>
+            <li><span>Lör–Sön</span><span>10:00 – 18:00</span></li>
+          </ul>
+          <!--/FIELD:opening_hours-->
+        </div>
+
+        <div class="kontakt__block">
+          <h3>Följ oss</h3>
+          <!--FIELD:facebook-->
+          <a href="https://www.facebook.com/matchahouse.gbg/" class="social-link" target="_blank" rel="noopener noreferrer">Facebook — Matcha House GBG</a>
+          <!--/FIELD:facebook-->
+          <!--FIELD:instagram--><a href="https://www.instagram.com/matchahouse.gbg/" target="_blank" rel="noopener">https://www.instagram.com/matchahouse.gbg/</a><!--/FIELD:instagram-->
+          <!--FIELD:website-->
+          <!-- Ingen separat hemsida ännu — du hittar oss på Postgatan! -->
+          <!--/FIELD:website-->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__name"><!--FIELD:company_name-->Matcha House<!--/FIELD:company_name--> &copy; 2024</p>
+      <p class="footer__address"><!--FIELD:address-->Postgatan 26–32, 411 06 Göteborg<!--/FIELD:address--> &nbsp;|&nbsp; <!--FIELD:phone--><a href="tel:0720406641">072-040 66 41</a><!--/FIELD:phone--></p>
+      <p class="footer__credits">
+        Foto av <a href="https://unsplash.com/@tashakostyuk">Tasha Kostyuk</a> på <a href="https://unsplash.com">Unsplash</a> &nbsp;·&nbsp;
+        Foto av <a href="https://unsplash.com/@snappr">Snappr</a> på <a href="https://unsplash.com">Unsplash</a> &nbsp;·&nbsp;
+        Foto av <a href="https://unsplash.com/@dvhoang2106">Đào Việt Hoàng</a> på <a href="https://unsplash.com">Unsplash</a> &nbsp;·&nbsp;
+        Foto av <a href="https://unsplash.com/@brookecagle">Brooke Cagle</a> på <a href="https://unsplash.com">Unsplash</a> &nbsp;·&nbsp;
+        Foto av <a href="https://unsplash.com/@photograaapheee">Yuvraj Sachdeva</a> på <a href="https://unsplash.com">Unsplash</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
