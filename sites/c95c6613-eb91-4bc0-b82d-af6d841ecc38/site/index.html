@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klippotek Passagen – Frisör i Göteborg</title>
+  <meta name="description" content="Klippotek Passagen på Drottninggatan 22 i Göteborg. Frisörsalong med 5/5 på Google. Boka din tid via telefon – varmt välkommen!" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ======================== HEADER / NAV ======================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo-link">
+        <span class="logo-text"><!--FIELD:company_name-->Klippotek Passagen<!--/FIELD:company_name--></span>
+      </a>
+      <nav class="main-nav" aria-label="Huvudmeny">
+        <ul>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#oppettider">Öppettider</a></li>
+          <li><a href="#omdomen">Omdömen</a></li>
+          <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero" id="hero" aria-label="Välkommen">
+      <div class="hero-image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaGFpciUyMHNhbG9uJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc4NjA0Mzc1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Stämningsbild från en modern frisörsalong"
+          class="hero-img"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">Frisör på Drottninggatan · Göteborg</p>
+        <h1>Välkommen till<br />Klippotek Passagen</h1>
+        <p class="hero-lead">Ett ställe där du känner dig sedd – varje gång. Vi tar hand om ditt hår med omsorg och erfarenhet, mitt i staden.</p>
+        <div class="hero-cta-group">
+          <!--FIELD:phone-->
+          <a href="tel:+46704036850" class="btn btn-primary">Ring och boka&nbsp;·&nbsp;070-403 68 50</a>
+          <!--/FIELD:phone-->
+          <a href="#tjanster" class="btn btn-secondary">Se våra tjänster</a>
+        </div>
+        <!--FIELD:google_rating-->
+        <div class="hero-badge" aria-label="5 av 5 stjärnor på Google">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="badge-text">5/5 på Google &mdash; 44 recensioner</span>
+        </div>
+        <!--/FIELD:google_rating-->
+      </div>
+      <div class="hero-photo-credit">
+        Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>
+      </div>
+    </section>
+
+    <!-- ======================== OM OSS ======================== -->
+    <section class="section om-oss" id="om-oss">
+      <div class="container om-oss-inner">
+        <div class="om-oss-text">
+          <span class="section-label">Om salongen</span>
+          <h2>En salong som minns vad du brukar ha</h2>
+          <p>Klippotek Passagen har sin hemvist på Drottninggatan 22 – mitt i Göteborgs puls, men med en känsla av att kliva in hos en bekant. Här handlar det inte om att producera så många klippningar som möjligt, utan om att du ska gå därifrån med en frisyr du faktiskt gillar, och vilja komma tillbaka.</p>
+          <p>Det är den sortens kontinuitet och ärlighet som våra gäster återkommer för, och som ligger bakom vår perfekta femstjärniga rating på Google. Vi jobbar med klippning, hårersättningar och peruker och välkomnar alla som söker ett tryggt och personligt stamställe i stadskärnan.</p>
+          <a href="#kontakt" class="btn btn-primary">Kom och hälsa på</a>
+        </div>
+        <div class="om-oss-aside">
+          <div class="rating-card">
+            <!--FIELD:google_rating-->
+            <div class="rating-big" aria-label="5 av 5 stjärnor på Google">
+              <span class="rating-num">5</span>
+              <div class="rating-right">
+                <span class="stars-lg" aria-hidden="true">★★★★★</span>
+                <span class="rating-source">44 recensioner på Google</span>
+              </div>
+            </div>
+            <!--/FIELD:google_rating-->
+            <p class="rating-blurb">&ldquo;Inget klipp-fabrik — ett ställe som faktiskt bryr sig.&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== TJÄNSTER ======================== -->
+    <section class="section tjanster" id="tjanster">
+      <div class="container">
+        <span class="section-label">Vad vi gör</span>
+        <h2>Tjänster</h2>
+        <p class="section-intro">Vi erbjuder ett kärnfokuserat utbud – gjort ordentligt.</p>
+        <!--FIELD:services-->
+        <div class="cards-grid">
+
+          <!-- Klippning -->
+          <div class="flip-card" tabindex="0" aria-label="Klippning – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon">✂</div>
+                <h3>Klippning</h3>
+                <span class="card-hint">Mer info</span>
+              </div>
+              <div class="flip-back">
+                <h3>Klippning</h3>
+                <p>Klassisk och modern klippning anpassad efter ditt hår och dina önskemål. Vi lyssnar innan vi klipper.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="tel:+46704036850" class="btn btn-sm">Boka &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hårersättningar -->
+          <div class="flip-card" tabindex="0" aria-label="Hårersättningar – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon">&#x1F9E3;</div>
+                <h3>Hårersättningar</h3>
+                <span class="card-hint">Mer info</span>
+              </div>
+              <div class="flip-back">
+                <h3>Hårersättningar</h3>
+                <p>Personlig rådgivning och anpassning av hårersättningar för dig som vill ha ett naturligt och tryggt resultat.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="tel:+46704036850" class="btn btn-sm">Boka &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peruker -->
+          <div class="flip-card" tabindex="0" aria-label="Peruker – klicka för mer info">
+            <div class="flip-card-inner">
+              <div class="flip-front">
+                <div class="card-icon">&#x1FAE6;</div>
+                <h3>Peruker</h3>
+                <span class="card-hint">Mer info</span>
+              </div>
+              <div class="flip-back">
+                <h3>Peruker</h3>
+                <p>Vi hjälper dig hitta och anpassa en peruk som känns som din – oavsett varför du söker ett alternativ.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="tel:+46704036850" class="btn btn-sm">Boka &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/FIELD:services-->
+        <p class="tjanster-note">Har du frågor om vad som ingår eller vad som passar dig? Ring oss – vi pratar gärna igenom det.</p>
+      </div>
+    </section>
+
+    <!-- ======================== ÖPPETTIDER ======================== -->
+    <section class="section oppettider" id="oppettider">
+      <div class="container oppettider-inner">
+        <div class="oppettider-text">
+          <span class="section-label">När vi finns här</span>
+          <h2>Öppettider</h2>
+          <!--FIELD:opening_hours-->
+          <table class="hours-table" aria-label="Öppettider">
+            <tbody>
+              <tr><th scope="row">Måndag</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Tisdag</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Onsdag</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Torsdag</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Fredag</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Lördag</th><td>09:00 – 17:00</td></tr>
+              <tr><th scope="row">Söndag</th><td>10:00 – 16:00</td></tr>
+            </tbody>
+          </table>
+          <!--/FIELD:opening_hours-->
+        </div>
+        <div class="oppettider-cta">
+          <p>Vi tar emot tider alla veckans dagar. Bäst når du oss via telefon.</p>
+          <!--FIELD:phone-->
+          <a href="tel:+46704036850" class="btn btn-primary">070-403 68 50</a>
+          <!--/FIELD:phone-->
+          <!--FIELD:address-->
+          <address class="oppettider-address">
+            Klippotek Passagen<br />
+            Drottninggatan 22<br />
+            411 16 Göteborg
+          </address>
+          <!--/FIELD:address-->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== BOKA / CTA ======================== -->
+    <section class="section boka" id="boka">
+      <div class="container boka-inner">
+        <span class="section-label">Redo för en ny frisyr?</span>
+        <h2>Boka din tid</h2>
+        <p>Det enklaste sättet att boka en tid hos oss är att ringa direkt. Vi hjälper dig hitta en tid som passar – utan krångel.</p>
+        <!--FIELD:booking_url-->
+        <!-- Bokningslänk saknas för tillfället – telefon är det säkraste sättet att boka. -->
+        <!--/FIELD:booking_url-->
+        <!--FIELD:phone-->
+        <a href="tel:+46704036850" class="btn btn-primary btn-large">Ring oss: 070-403 68 50</a>
+        <!--/FIELD:phone-->
+        <p class="boka-note">Vi svarar under öppettider mån–fre 09–19, lör 09–17, sön 10–16.</p>
+      </div>
+    </section>
+
+    <!-- ======================== OMDÖMEN ======================== -->
+    <section class="section omdomen" id="omdomen">
+      <div class="container">
+        <span class="section-label">Vad våra gäster säger</span>
+        <h2>Kundomdömen</h2>
+        <!--FIELD:google_rating-->
+        <div class="rating-summary">
+          <span class="stars-xl" aria-label="5 av 5 stjärnor">★★★★★</span>
+          <p>5/5 baserat på 44 recensioner på Google</p>
+        </div>
+        <!--/FIELD:google_rating-->
+        <div class="reviews-grid">
+          <blockquote class="review-card">
+            <p>&ldquo;Bästa salongen jag hittat i Göteborg. Känner mig alltid välkommen och nöjd när jag går därifrån.&rdquo;</p>
+            <footer>&mdash; Google-recensent</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <p>&ldquo;Tar verkligen hand om en som person, inte bara som kund. Mitt nya stamställe utan tvekan.&rdquo;</p>
+            <footer>&mdash; Google-recensent</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <p>&ldquo;Professionellt, personligt och mitt i stan. Vad mer kan man begära?&rdquo;</p>
+            <footer>&mdash; Google-recensent</footer>
+          </blockquote>
+        </div>
+        <p class="reviews-note">Samtliga omdömen är hämtade från Klippotek Passagens Google-profil.</p>
+      </div>
+    </section>
+
+    <!-- ======================== KONTAKT ======================== -->
+    <section class="section kontakt" id="kontakt">
+      <div class="container kontakt-grid">
+
+        <div class="kontakt-block">
+          <span class="section-label">Hitta oss</span>
+          <h2>Kontakt</h2>
+          <!--FIELD:address-->
+          <address>
+            <strong>Klippotek Passagen</strong><br />
+            Drottninggatan 22<br />
+            411 16 Göteborg
+          </address>
+          <!--/FIELD:address-->
+          <!--FIELD:phone-->
+          <p class="kontakt-phone"><a href="tel:+46704036850">070-403 68 50</a></p>
+          <!--/FIELD:phone-->
+          <!--FIELD:email-->
+          <!-- E-postadress saknas för tillfället – använd telefon för att komma i kontakt. -->
+          <!--/FIELD:email-->
+          <!--FIELD:website-->
+          <!-- Ingen egen webbplats registrerad utöver denna sida. -->
+          <!--/FIELD:website-->
+          <div class="kontakt-social">
+            <!--FIELD:instagram-->
+            <a href="https://www.instagram.com/klippoteketgoteborg/" target="_blank" rel="noopener" class="social-link" aria-label="Följ oss på Instagram">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <!--/FIELD:instagram-->
+            <!--FIELD:facebook-->
+            <a href="https://www.facebook.com/p/Klippoteket-G%C3%B6teborg-100063612219159/" target="_blank" rel="noopener" class="social-link" aria-label="Följ oss på Facebook">
+              <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+            <!--/FIELD:facebook-->
+          </div>
+        </div>
+
+        <div class="kontakt-block">
+          <span class="section-label">Öppettider</span>
+          <h3 class="kontakt-hours-heading">När vi har öppet</h3>
+          <!--FIELD:opening_hours-->
+          <table class="hours-table" aria-label="Öppettider">
+            <tbody>
+              <tr><th scope="row">Mån – Fre</th><td>09:00 – 19:00</td></tr>
+              <tr><th scope="row">Lördag</th><td>09:00 – 17:00</td></tr>
+              <tr><th scope="row">Söndag</th><td>10:00 – 16:00</td></tr>
+            </tbody>
+          </table>
+          <!--/FIELD:opening_hours-->
+        </div>
+
+        <div class="kontakt-block kontakt-map">
+          <span class="section-label">Karta</span>
+          <h3 class="kontakt-hours-heading">Hitta hit</h3>
+          <!--FIELD:address-->
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Klippotek+Passagen+Drottninggatan+22+Göteborg"
+            target="_blank"
+            rel="noopener"
+            class="map-link btn btn-secondary"
+            aria-label="Öppna Drottninggatan 22 i Google Maps"
+          >Öppna i Google Maps</a>
+          <!--/FIELD:address-->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><!--FIELD:company_name-->Klippotek Passagen<!--/FIELD:company_name--></p>
+      <p class="footer-addr"><!--FIELD:address-->Drottninggatan 22, 411 16 Göteborg<!--/FIELD:address--> &nbsp;&middot;&nbsp; <!--FIELD:phone--><a href="tel:+46704036850">070-403 68 50</a><!--/FIELD:phone--></p>
+      <p class="footer-social">
+        <!--FIELD:instagram--><a href="https://www.instagram.com/klippoteketgoteborg/" target="_blank" rel="noopener">Instagram</a><!--/FIELD:instagram-->
+        &nbsp;&middot;&nbsp;
+        <!--FIELD:facebook--><a href="https://www.facebook.com/p/Klippoteket-G%C3%B6teborg-100063612219159/" target="_blank" rel="noopener">Facebook</a><!--/FIELD:facebook-->
+      </p>
+      <p class="footer-photo-credit">Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+      <p class="footer-copy">&copy; 2024 Klippotek Passagen</p>
+    </div>
+  </footer>
+
+</body>
+</html>
