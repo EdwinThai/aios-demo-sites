@@ -1,16 +1,16 @@
-// ===== Vi's Tea — vanilla JS =====
+// Vi's Tea — script.js
 
-// --- Mobile nav toggle ---
-const navToggle = document.querySelector('.nav-toggle');
-const mainNav   = document.querySelector('.main-nav');
+// ── Hamburger nav toggle ──────────────────────────
+const navToggle = document.getElementById('navToggle');
+const mainNav   = document.getElementById('mainNav');
 
 if (navToggle && mainNav) {
   navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+    const open = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // Close nav when a link inside it is clicked
+  // Close nav when a link is clicked
   mainNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mainNav.classList.remove('open');
@@ -19,35 +19,25 @@ if (navToggle && mainNav) {
   });
 }
 
-// --- Flip cards: touch / click toggle for mobile (no hover) ---
-// We detect if the device is a coarse-pointer (touch) device
-const isTouchDevice = window.matchMedia('(hover: none)').matches;
+// ── Flip-card touch toggle ────────────────────────
+// On touch devices (no hover), tap to flip; tap again to unflip.
+const isTouch = window.matchMedia('(hover: none)').matches;
 
-if (isTouchDevice) {
-  document.querySelectorAll('.card-wrapper').forEach(card => {
+if (isTouch) {
+  document.querySelectorAll('.flip-card').forEach(card => {
     card.addEventListener('click', () => {
       card.classList.toggle('flipped');
+    });
+    // Keyboard accessibility
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
     });
   });
 }
 
-// --- Smooth header hide/show on scroll (optional UX) ---
-let lastScrollY = window.scrollY;
-const header = document.querySelector('.site-header');
-
-window.addEventListener('scroll', () => {
-  const currentY = window.scrollY;
-  if (header) {
-    if (currentY > lastScrollY && currentY > 80) {
-      header.style.transform = 'translateY(-100%)';
-    } else {
-      header.style.transform = 'translateY(0)';
-    }
-  }
-  lastScrollY = currentY;
-}, { passive: true });
-
-// Make sure header transition is smooth
-if (header) {
-  header.style.transition = 'transform 0.3s ease';
-}
+// ── Footer year ───────────────────────────────────
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
