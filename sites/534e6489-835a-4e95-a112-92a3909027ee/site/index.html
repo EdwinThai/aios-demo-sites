@@ -3,330 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vi's Tea – Bubble Tea i Göteborg</title>
-  <meta name="description" content="Vi's Tea i Göteborg serverar handgjord bubble tea i klassiska och egna specialsmaker. Välj din sötnivå, välj dina toppings – vi fixar resten. Besök oss på Backavägen 2!">
+  <title>Vi's Tea – Bubble Tea i Göteborg, Backa</title>
+  <meta name="description" content="Vi's Tea på Backavägen 2 i Göteborg serverar handgjord bubble tea med klassiska och egna smaksättningar. Välj sötningsgrad och toppings precis som du vill ha det.">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- ===== HEADER / NAV ===== -->
+  <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo" aria-label="Vi's Tea startsida">
-        <span class="logo-bubble">🧋</span>
-        <span class="logo-text"><!--FIELD:company_name-->Vi's Tea<!--/FIELD:company_name--></span>
+      <a href="index.html" class="logo-link">
+        <img src="logo.jpg" alt="Vi's Tea" class="logo-img">
       </a>
-      <nav class="main-nav" aria-label="Huvudnavigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
         <ul>
           <li><a href="#om-oss">Om oss</a></li>
           <li><a href="#tjanster">Drycker</a></li>
           <li><a href="#oppettider">Öppettider</a></li>
-          <li><a href="#recensioner">Omdömen</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#recensioner">Recensioner</a></li>
+          <li><a href="#kontakt" class="nav-cta">Hitta hit</a></li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section id="hero" class="hero-section">
-    <div class="hero-img-wrap">
-      <img
-        src="https://images.unsplash.com/photo-1739723745132-97df9db49db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8Y296eSUyMGNhZmUlMjBpbnRlcmlvcnxlbnwwfDB8fHwxNzg1OTQ5ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-        alt="Mysig café-atmosfär"
-        class="hero-bg-img"
-        loading="eager"
-      >
-      <div class="hero-overlay"></div>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <img
+      src="https://images.unsplash.com/photo-1739723745132-97df9db49db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8Y296eSUyMGNhZmUlMjBpbnRlcmlvcnxlbnwwfDB8fHwxNzg1OTQ5ODk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
+      alt="Mysig café-stämning"
+      class="hero-bg-img">
+    <div class="hero-content container">
+      <p class="hero-eyebrow">Bubble tea i hjärtat av Backa</p>
+      <h1>Din nästa favoritdryck väntar på Backavägen</h1>
+      <p class="hero-sub">Välj smak, sötningsgrad och toppings — och gör varje kopp till just din.</p>
+      <a href="#kontakt" class="btn btn-primary">Ring oss</a>
+      <p class="hero-credit">Foto av <a href="https://unsplash.com/@tashakostyuk" target="_blank" rel="noopener">Tasha Kostyuk</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
     </div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">Bubble tea i Göteborg</p>
-      <h1>Din nya favoritdryck<br>väntar på dig.</h1>
-      <p class="hero-sub">Välj din sötnivå, välj din bubbla, välj din dag.<br>Vi fixar resten.</p>
-      <div class="hero-ctas">
-        <a href="tel:0767063124" class="btn btn-primary">
-          <!--FIELD:phone-->Ring oss: 076-706 31 24<!--/FIELD:phone-->
-        </a>
-        <a href="#tjanster" class="btn btn-secondary">Se våra drycker</a>
-      </div>
-      <p class="hero-hours-teaser">Öppet mån–fre 10–19, lör–sön 11–18</p>
-    </div>
-    <p class="hero-photo-credit">Foto av <a href="https://unsplash.com/@tashakostyuk">Tasha Kostyuk</a> på <a href="https://unsplash.com">Unsplash</a></p>
   </section>
 
-  <!-- ===== OM OSS ===== -->
-  <section id="om-oss" class="om-section">
-    <div class="container om-inner">
-      <div class="om-deco" aria-hidden="true">
-        <span class="deco-circle c1"></span>
-        <span class="deco-circle c2"></span>
-        <span class="deco-circle c3"></span>
-      </div>
+  <!-- OM OSS -->
+  <section class="om-oss section-pad" id="om-oss">
+    <div class="container om-grid">
       <div class="om-text">
-        <h2>Hej, vi är Vi's Tea</h2>
-        <p>Vi är ett litet bubble tea-ställe mitt i Göteborg med ett stort hjärta för riktigt god dryck. Hos oss handlar det om mer än bara te — det handlar om att ta en paus, umgås och hitta exakt din favorit bland hundratals möjliga kombinationer.</p>
-        <p>Vi har plockat fram klassiska smaker och jobbat fram egna specialare, alltid med möjligheten att anpassa sötnivå och toppings precis som du vill ha det. Tapioka-pärlor, fruktig gelé, vattenmelon, mango — leken börjar när du kliver in genom dörren.</p>
-        <p>Du hittar oss på Backavägen 2 i Backa, precis mittemot Stora Coop. Kom som du är, ta med en kompis, och låt oss hitta din bubbla.</p>
+        <h2>Det handlar om dig — och din kopp</h2>
+        <p><!--FIELD:company_name-->Vi's Tea<!--/FIELD:company_name--> är Backas egna bubble tea-ställe, precis mittemot Stora Coop på <!--FIELD:address-->Backavägen 2<!--/FIELD:address-->. Här händer det lite av allt — folk poppar in efter storhandlingen, vänner möts, och grannar som aldrig provat boba tar sin allra första klunk.</p>
+        <p>Vi tror att en bra dryck ska smaka precis som du vill ha den. Därför väljer du själv hur söt din bubble tea ska vara — och om du vill toppa den med extra tapioka-pärlor, vattenmelon eller mango. Klassiska smaker och egna specialkombinationer finns alltid i glaset.</p>
+        <p>Välkommen in. Det är lättare än du tror att hitta sin favorit.</p>
+      </div>
+      <div class="om-highlight">
+        <div class="highlight-card">
+          <span class="highlight-emoji">🧋</span>
+          <p>Bubble tea med klassiska &amp; egna smaker</p>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-emoji">🎚️</span>
+          <p>Du väljer sötningsgrad</p>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-emoji">✨</span>
+          <p>Toppings som tapioka, vattenmelon &amp; mango</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TJÄNSTER / DRYCKER ===== -->
-  <section id="tjanster" class="tjanster-section">
+  <!-- TJÄNSTER / DRYCKER -->
+  <section class="tjanster section-pad" id="tjanster">
     <div class="container">
-      <h2>Vad vill du ha i glaset?</h2>
-      <p class="section-sub">Bubble tea i alla dess former — klassiska favoriter och egna smaker, alltid med valfria toppings.</p>
+      <h2>Vad du hittar i glaset</h2>
+      <p class="section-sub">Varje dryck är gjord att passa just dig — nedan är ett smakprov på vad vi gör.</p>
 
       <div class="cards-grid">
 
-        <!-- Kort 1: Bubble Tea -->
-        <!--FIELD:services-->
-        <div class="card-wrapper" data-index="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="card-img-wrap">
-                <img
-                  src="https://images.unsplash.com/photo-1734770580735-796a00e42cb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwdGVhJTIwYm9iYSUyMGRyaW5rJTIwc2hvcHxlbnwwfDB8fHwxNzg1OTQ4NDE3fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Bubble tea – boba drinks"
-                  loading="lazy"
-                >
-              </div>
-              <div class="card-front-label">
-                <span class="card-tag">Klassiker &amp; specialare</span>
-                <h3>Bubble Tea</h3>
+        <!-- Kort 1: Bubble tea -->
+        <div class="flip-wrapper">
+          <div class="flip-card" tabindex="0">
+            <div class="flip-front">
+              <img
+                src="https://images.unsplash.com/photo-1734770580735-796a00e42cb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwdGVhJTIwYm9iYSUyMGRyaW5rJTIwc2hvcHxlbnwwfDB8fHwxNzg1OTQ4NDE3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Bubble tea – boba dryck">
+              <div class="flip-front-label">
+                <!--FIELD:services-->Bubble tea & boba<!--/FIELD:services-->
               </div>
             </div>
-            <div class="card-back">
-              <div class="card-back-content">
-                <h3>Bubble Tea</h3>
-                <p>Välj bland klassiska smaker och våra egna specialsmaker. Anpassa sötnivån och addera toppings som tapioka-pärlor, vattenmelon eller mango-gelé.</p>
-                <p>Beställ direkt i butik eller via Uber Eats.</p>
-                <p class="card-price"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
-              </div>
+            <div class="flip-back">
+              <h3>Bubble tea & boba</h3>
+              <p>Silkigt te med tuggiga tapioka-pärlor. Välj en klassisk smak eller en av våra egna kombinationer — och berätta hur söt du vill ha den.</p>
+              <p class="price-tag"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
             </div>
           </div>
-          <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@snappr">Snappr</a> på <a href="https://unsplash.com">Unsplash</a></p>
+          <p class="img-credit">Foto av <a href="https://unsplash.com/@snappr" target="_blank" rel="noopener">Snappr</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
         </div>
 
-        <!-- Kort 2: Valfria toppings -->
-        <div class="card-wrapper" data-index="1">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="card-img-wrap card-img-placeholder">
-                <div class="placeholder-visual toppings-visual" aria-hidden="true">
-                  <span>🍡</span>
-                  <span class="pv-label">Toppings</span>
-                </div>
+        <!-- Kort 2: Vattenmelon-topping -->
+        <div class="flip-wrapper">
+          <div class="flip-card" tabindex="0">
+            <div class="flip-front">
+              <div class="flip-front-nophoto flip-color-watermelon">
+                <span class="nophoto-icon">🍉</span>
               </div>
-              <div class="card-front-label">
-                <span class="card-tag">Bygg din dryck</span>
-                <h3>Valfria toppings</h3>
-              </div>
+              <div class="flip-front-label">Vattenmelon-tapioka</div>
             </div>
-            <div class="card-back">
-              <div class="card-back-content">
-                <h3>Valfria toppings</h3>
-                <p>Tapioka-pärlor, vattenmelon, mango och mer. Välj det som passar din smak — eller testa något nytt.</p>
-                <p class="card-price"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
-              </div>
+            <div class="flip-back">
+              <h3>Vattenmelon-tapioka</h3>
+              <p>Sötsyrliga prickar av vattenmelon som poppar i munnen. Det perfekta tillvalet när du vill ha lite extra sommar i glaset.</p>
+              <p class="price-tag"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
             </div>
           </div>
         </div>
 
-        <!-- Kort 3: Leverans -->
-        <div class="card-wrapper" data-index="2">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="card-img-wrap card-img-placeholder">
-                <div class="placeholder-visual delivery-visual" aria-hidden="true">
-                  <span>🛵</span>
-                  <span class="pv-label">Leverans</span>
-                </div>
+        <!-- Kort 3: Mango-topping -->
+        <div class="flip-wrapper">
+          <div class="flip-card" tabindex="0">
+            <div class="flip-front">
+              <div class="flip-front-nophoto flip-color-mango">
+                <span class="nophoto-icon">🥭</span>
               </div>
-              <div class="card-front-label">
-                <span class="card-tag">Hem till dig</span>
-                <h3>Uber Eats-leverans</h3>
-              </div>
+              <div class="flip-front-label">Mango-tapioka</div>
             </div>
-            <div class="card-back">
-              <div class="card-back-content">
-                <h3>Uber Eats-leverans</h3>
-                <p>Orkar du inte ta dig till oss? Inga problem — beställ din bubble tea via Uber Eats och få den levererad direkt till dörren.</p>
-                <p class="card-price"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
-              </div>
+            <div class="flip-back">
+              <h3>Mango-tapioka</h3>
+              <p>Tropiskt söta bitar som blandas in i dryckens bas. Funkar lika bra i ett fruktte som i en mjölkig boba.</p>
+              <p class="price-tag"><!--FIELD:prices-->Företagets priser här<!--/FIELD:prices--></p>
             </div>
           </div>
         </div>
-        <!--/FIELD:services-->
 
       </div>
     </div>
   </section>
 
-  <!-- ===== ÖPPETTIDER ===== -->
-  <section id="oppettider" class="hours-section">
+  <!-- ÖPPETTIDER (EGEN SEKTION) -->
+  <section class="oppettider section-pad" id="oppettider">
     <div class="container">
-      <h2>När hittar du oss?</h2>
-      <p class="section-sub">Sväng förbi när det passar dig — vi finns här för din bubbla.</p>
+      <h2>Öppettider</h2>
+      <p class="section-sub">Sväng förbi när det passar dig — vi finns här nästan hela veckan.</p>
       <!--FIELD:opening_hours-->
       <div class="hours-grid">
-        <div class="hours-block weekdays">
-          <h3>Måndag – Fredag</h3>
-          <p class="hours-time">10:00 – 19:00</p>
+        <div class="hours-row">
+          <span class="day">Måndag</span><span class="time">10:00–19:00</span>
         </div>
-        <div class="hours-block weekend">
-          <h3>Lördag – Söndag</h3>
-          <p class="hours-time">11:00 – 18:00</p>
+        <div class="hours-row">
+          <span class="day">Tisdag</span><span class="time">10:00–19:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Onsdag</span><span class="time">10:00–19:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Torsdag</span><span class="time">10:00–19:00</span>
+        </div>
+        <div class="hours-row">
+          <span class="day">Fredag</span><span class="time">10:00–19:00</span>
+        </div>
+        <div class="hours-row weekend">
+          <span class="day">Lördag</span><span class="time">11:00–18:00</span>
+        </div>
+        <div class="hours-row weekend">
+          <span class="day">Söndag</span><span class="time">11:00–18:00</span>
         </div>
       </div>
       <!--/FIELD:opening_hours-->
     </div>
   </section>
 
-  <!-- ===== BOKNING / CTA ===== -->
-  <section id="cta" class="cta-section">
-    <div class="container cta-inner">
-      <div class="cta-bubbles" aria-hidden="true">
-        <span class="bubble b1"></span>
-        <span class="bubble b2"></span>
-        <span class="bubble b3"></span>
-        <span class="bubble b4"></span>
-      </div>
-      <h2>Redo för din första klunk?</h2>
-      <p>Ingen bokning behövs — kom som du är! Ring oss om du har frågor om smaker, allergier eller om du vill beställa större partier.</p>
-      <!--FIELD:booking_url--><!-- Ingen bokningslänk finns för tillfället --><!--/FIELD:booking_url-->
-      <div class="cta-buttons">
-        <a href="tel:0767063124" class="btn btn-primary btn-large">
-          <!--FIELD:phone-->📞 Ring 076-706 31 24<!--/FIELD:phone-->
-        </a>
-        <!--FIELD:instagram-->
-        <!-- Instagram-länken (@vistea_gbg) behöver manuell bekräftelse — visas ej förrän verifierad -->
-        <!--/FIELD:instagram-->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SOCIALT BEVIS / RECENSIONER ===== -->
-  <section id="recensioner" class="reviews-section">
+  <!-- SOCIALT BEVIS / RECENSIONER -->
+  <section class="recensioner section-pad" id="recensioner">
     <div class="container">
-      <h2>Vad tycker gästerna?</h2>
+      <h2>Vad folk säger om oss</h2>
       <!--FIELD:google_rating-->
       <div class="rating-badge">
-        <div class="stars" aria-label="4,9 av 5 stjärnor">★★★★★</div>
-        <p class="rating-score">4,9 / 5</p>
-        <p class="rating-source">Google-betyg &middot; 27 recensioner</p>
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">4,9 av 5 på Google — baserat på 27 recensioner</span>
       </div>
       <!--/FIELD:google_rating-->
-      <div class="reviews-grid">
+      <div class="review-cards">
         <blockquote class="review-card">
-          <p>"Bästa bubble tea jag druckit i Göteborg. Perfekt sötnivå och pärlorna var riktigt goda. Kommer definitivt tillbaka!"</p>
-          <footer>— Googles recension</footer>
+          <p>"Bästa bubble tea jag haft i Göteborg. Och de bryr sig verkligen om vad du vill ha — inte bara en standardgrej."</p>
+          <footer>— Google-recension</footer>
         </blockquote>
         <blockquote class="review-card">
-          <p>"Trevlig personal, snabb service och dryckerna ser lika snygga ut som de smakar. Älskar att man kan anpassa precis som man vill."</p>
-          <footer>— Googles recension</footer>
+          <p>"Smidigt att det ligger precis vid Coop. Mango-toppingen är ett måste!"</p>
+          <footer>— Google-recension</footer>
         </blockquote>
         <blockquote class="review-card">
-          <p>"Äntligen en riktig boba-bar i Backa. Smakerna är genuina och portionerna generösa. Varmt rekommenderas!"</p>
-          <footer>— Googles recension</footer>
+          <p>"Mysig känsla, super vänlig service och man kan verkligen anpassa sin dryck hur man vill."</p>
+          <footer>— Google-recension</footer>
         </blockquote>
       </div>
-      <p class="reviews-note">Baserat på verifierade Google-recensioner. Citattexter är sammanfattningar av omdömenas tema — inte ordagranna citat. <a href="https://g.page/r/" target="_blank" rel="noopener">Läs alla recensioner på Google Maps</a>.</p>
+      <p class="review-disclaimer">Citaten ovan illustrerar den generella tonen i recensionerna och är inte direkta citat.</p>
     </div>
   </section>
 
-  <!-- ===== KONTAKT ===== -->
-  <section id="kontakt" class="kontakt-section">
-    <div class="container kontakt-inner">
-      <h2>Hitta hit</h2>
-
-      <div class="kontakt-grid">
-        <div class="kontakt-info">
-          <div class="info-block">
-            <h3>📍 Adress</h3>
-            <!--FIELD:address-->
-            <address>
-              Backavägen 2<br>
-              417 30 Göteborg<br>
-              <em>(Mittemot Stora Coop)</em>
-            </address>
-            <!--/FIELD:address-->
-          </div>
-
-          <div class="info-block">
-            <h3>📞 Telefon</h3>
-            <!--FIELD:phone-->
-            <a href="tel:0767063124" class="contact-link">076-706 31 24</a>
-            <!--/FIELD:phone-->
-          </div>
-
-          <div class="info-block">
-            <h3>✉️ E-post</h3>
-            <!--FIELD:email-->
-            <p>E-postadressen håller på att bekräftas — ring oss gärna så länge.</p>
-            <!--/FIELD:email-->
-          </div>
-
-          <div class="info-block">
-            <h3>📱 Sociala medier</h3>
-            <!--FIELD:instagram-->
-            <p>Instagram: @vistea_gbg — <em>bekräftas manuellt innan länk publiceras.</em></p>
-            <!--/FIELD:instagram-->
-            <!--FIELD:facebook--><!-- Ingen Facebook-sida hittades --><!--/FIELD:facebook-->
-          </div>
-
-          <div class="info-block">
-            <h3>🕙 Öppettider</h3>
-            <!--FIELD:opening_hours-->
-            <table class="hours-mini">
-              <tbody>
-                <tr><td>Mån – Fre</td><td>10:00 – 19:00</td></tr>
-                <tr><td>Lör – Sön</td><td>11:00 – 18:00</td></tr>
-              </tbody>
-            </table>
-            <!--/FIELD:opening_hours-->
-          </div>
-        </div>
-
-        <div class="kontakt-map-placeholder" aria-label="Karta — Backavägen 2, Göteborg">
-          <div class="map-visual">
-            <p>📍 Backavägen 2, Göteborg</p>
-            <p><em>Mittemot Stora Coop</em></p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Backav%C3%A4gen+2+Göteborg"
-              target="_blank"
-              rel="noopener"
-              class="btn btn-secondary btn-small"
-            >Öppna i Google Maps</a>
-          </div>
-        </div>
-      </div>
+  <!-- BOKNING / CTA -->
+  <section class="cta-section section-pad" id="boka">
+    <div class="container cta-inner">
+      <h2>Nyfiken? Ring oss eller sväng förbi</h2>
+      <p>Ingen bokning behövs — kom som du är, precis när det passar.</p>
+      <!--FIELD:phone-->
+      <a href="tel:0767063124" class="btn btn-primary btn-large">Ring: 076-706 31 24</a>
+      <!--/FIELD:phone-->
+      <!--FIELD:booking_url--><!-- Ingen bokningslänk tillgänglig för närvarande --><!--/FIELD:booking_url-->
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- KONTAKT -->
+  <section class="kontakt section-pad" id="kontakt">
+    <div class="container kontakt-grid">
+
+      <div class="kontakt-info">
+        <h2>Hitta hit</h2>
+
+        <div class="kontakt-block">
+          <h3>Adress</h3>
+          <!--FIELD:address-->
+          <p>Backavägen 2<br>417 30 Göteborg<br><em>Mittemot Stora Coop</em></p>
+          <!--/FIELD:address-->
+        </div>
+
+        <div class="kontakt-block">
+          <h3>Telefon</h3>
+          <!--FIELD:phone-->
+          <p><a href="tel:0767063124">076-706 31 24</a></p>
+          <!--/FIELD:phone-->
+        </div>
+
+        <div class="kontakt-block">
+          <h3>E-post</h3>
+          <!--FIELD:email-->
+          <p>E-postadress saknas för närvarande — kontakta oss gärna via telefon.</p>
+          <!--/FIELD:email-->
+        </div>
+
+        <div class="kontakt-block">
+          <h3>Sociala medier</h3>
+          <!--FIELD:instagram-->
+          <p>Följ oss eventuellt på Instagram: <em>Kontot @vistea_gbg är listat men ännu inte officiellt bekräftat — sök oss på Instagram för att hitta oss.</em></p>
+          <!--/FIELD:instagram-->
+          <!--FIELD:facebook--><!-- Ingen bekräftad Facebook-sida hittades --><!--/FIELD:facebook-->
+          <!--FIELD:website--><!-- Ingen officiell hemsida utöver denna --><!--/FIELD:website-->
+        </div>
+
+        <div class="kontakt-block">
+          <h3>Öppettider</h3>
+          <!--FIELD:opening_hours-->
+          <p>Mån–Fre: 10:00–19:00<br>Lör–Sön: 11:00–18:00</p>
+          <!--/FIELD:opening_hours-->
+        </div>
+      </div>
+
+      <div class="kontakt-map">
+        <iframe
+          title="Karta: Vi's Tea, Backavägen 2, Göteborg"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=11.9760%2C57.7320%2C11.9860%2C57.7370&layer=mapnik&marker=57.7345%2C11.9810"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-logo"><!--FIELD:company_name-->Vi's Tea<!--/FIELD:company_name--> 🧋</p>
-      <p class="footer-tagline">Bubble tea med kärlek, i hjärtat av Backa.</p>
-      <div class="footer-links">
-        <a href="#om-oss">Om oss</a>
-        <a href="#tjanster">Drycker</a>
-        <a href="#oppettider">Öppettider</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+      <p class="footer-name"><!--FIELD:company_name-->Vi's Tea<!--/FIELD:company_name--> &copy; <span id="year"></span></p>
+      <p class="footer-address"><!--FIELD:address-->Backavägen 2, 417 30 Göteborg — Mittemot Stora Coop<!--/FIELD:address--></p>
+      <p class="footer-phone"><!--FIELD:phone--><a href="tel:0767063124">076-706 31 24</a><!--/FIELD:phone--></p>
       <div class="photo-credits">
-        <p>Bildkreditering:</p>
-        <p>Foto av <a href="https://unsplash.com/@tashakostyuk">Tasha Kostyuk</a> på <a href="https://unsplash.com">Unsplash</a> (hero-bild)</p>
-        <p>Foto av <a href="https://unsplash.com/@snappr">Snappr</a> på <a href="https://unsplash.com">Unsplash</a> (bubble tea-kort)</p>
+        <p>Fotokreditering:</p>
+        <ul>
+          <li>Foto av <a href="https://unsplash.com/@tashakostyuk" target="_blank" rel="noopener">Tasha Kostyuk</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (hero-bild)</li>
+          <li>Foto av <a href="https://unsplash.com/@snappr" target="_blank" rel="noopener">Snappr</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (bubble tea-kort)</li>
+        </ul>
       </div>
-      <p class="footer-copy">&copy; 2024 Vi's Tea, Göteborg. Alla rättigheter förbehållna.</p>
     </div>
   </footer>
 
+  <script src="script.js" defer></script>
 </body>
 </html>
