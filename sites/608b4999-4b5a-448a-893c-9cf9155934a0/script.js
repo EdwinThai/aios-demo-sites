@@ -39,7 +39,7 @@
       'mån': { open: 8 * 60, close: 17 * 60 }, 'tis': { open: 8 * 60, close: 17 * 60 },
       'ons': { open: 8 * 60, close: 17 * 60 }, 'tor': { open: 8 * 60, close: 17 * 60 },
       'fre': { open: 8 * 60, close: 17 * 60 }, 'lör': { open: 10 * 60, close: 18 * 60 },
-      'sön': null
+      'sön': { open: 12 * 60, close: 16 * 60 }
     };
     var today = dayMap[weekday];
     var isOpen = !!(today && minutes >= today.open && minutes < today.close);
