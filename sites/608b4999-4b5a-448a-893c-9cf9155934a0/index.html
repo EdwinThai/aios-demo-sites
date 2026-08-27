@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kafé Lyktan (TEST) — Testsajt för AIOS-portalen</title>
+  <meta name="description" content="Testsajt — inte ett riktigt företag. Byggd för att testa Skyltfönstret-portalen utan att röra en riktig kunds hemsida.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Det här är en helt påhittad testsajt, byggd direkt i kod (ingen
+       AI-generering) för att ge en säker sandlåda att testa portalens
+       inloggning och "begär ändring"-flöde i, utan att röra en riktig
+       kunds sajt eller dra API-kostnad för själva bygget. -->
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link"><span class="logo-mark">L</span>Kafé Lyktan</a>
+      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#om">Om oss</a></li>
+          <li><a href="#meny">Meny</a></li>
+          <li><a href="#oppettider">Öppettider</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="test-banner">Testsajt — inte ett riktigt företag. Fri att testa "Begär ändring" på.</div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Testkafé i AIOS-portalen</p>
+        <h1>Kaffe, ljus och en stund att andas ut</h1>
+        <p class="lead">Kafé Lyktan är en påhittad testverksamhet — byggd för att pröva Skyltfönstret-portalens inloggning och ändringsflöde utan att det kostar något eller rör en riktig kund.</p>
+        <div class="hero-actions">
+          <!--FIELD:booking_url-->
+          <a href="#kontakt" class="btn btn-primary">Boka bord</a>
+          <!--/FIELD:booking_url-->
+          <!--FIELD:phone-->
+          <a href="tel:0100000000" class="btn btn-outline">Ring 010-000 00 00</a>
+          <!--/FIELD:phone-->
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="om">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">Om oss</p>
+          <h2>En påhittad plats, byggd för att testas sönder</h2>
+          <p>Kafé Lyktan finns inte på riktigt — det är en testsajt i AIOS, skapad så att ni kan logga in i portalen, be om en ändring i chatten och se att det faktiskt fungerar, utan att oroa er för att förstöra något hos en riktig kund.</p>
+          <p>Ändra öppettiderna, byt telefonnummer, lägg till en menyrad — vad som helst. Går det sönder är det bara att köra om.</p>
+        </div>
+        <div class="about-accent">
+          <span class="about-accent-number">TEST</span>
+          <span class="about-accent-label">ingen riktig verksamhet</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="meny">
+      <div class="container">
+        <p class="eyebrow">Meny</p>
+        <h2>Vad vi serverar (påhittat)</h2>
+        <!--FIELD:services-->
+        <div class="menu-grid">
+          <div class="menu-card">
+            <h3>Filterkaffe</h3>
+            <p>Bryggd på plats, ny sats varje timme.</p>
+            <!--FIELD:prices--><span class="menu-price">35 kr</span><!--/FIELD:prices-->
+          </div>
+          <div class="menu-card">
+            <h3>Kanelbulle</h3>
+            <p>Nybakad, serveras ljummen.</p>
+            <!--FIELD:prices--><span class="menu-price">32 kr</span><!--/FIELD:prices-->
+          </div>
+          <div class="menu-card">
+            <h3>Lyktan-smörgåsen</h3>
+            <p>Rostat surdegsbröd, brie, fikonmarmelad.</p>
+            <!--FIELD:prices--><span class="menu-price">89 kr</span><!--/FIELD:prices-->
+          </div>
+        </div>
+        <!--/FIELD:services-->
+      </div>
+    </section>
+
+    <section class="section" id="oppettider">
+      <div class="container hours-grid">
+        <div>
+          <p class="eyebrow">Öppettider</p>
+          <h2>När vi har öppet (påhittat)</h2>
+          <div class="open-indicator" id="open-status" aria-live="polite"></div>
+        </div>
+        <!--FIELD:opening_hours-->
+        <table class="hours-table">
+          <tr><th>Måndag–Fredag</th><td>08:00–17:00</td></tr>
+          <tr><th>Lördag</th><td>10:00–15:00</td></tr>
+          <tr class="closed"><th>Söndag</th><td>Stängt</td></tr>
+        </table>
+        <!--/FIELD:opening_hours-->
+      </div>
+    </section>
+
+    <section class="section section-dark" id="kontakt">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow eyebrow-light">Kontakt</p>
+          <h2 class="light">Hitta hit (påhittat)</h2>
+          <!--FIELD:address-->
+          <p class="contact-line">Testgatan 1, 123 45 Ingenstad</p>
+          <!--/FIELD:address-->
+          <!--FIELD:phone-->
+          <p class="contact-line"><a href="tel:0100000000">010-000 00 00</a></p>
+          <!--/FIELD:phone-->
+          <!--FIELD:email-->
+          <p class="contact-line"><a href="mailto:test@kafelyktan.exempel">test@kafelyktan.exempel</a></p>
+          <!--/FIELD:email-->
+        </div>
+        <div class="contact-note">
+          <p>Testa gärna: skriv i chatten i portalen att du vill ändra en öppettid, ett pris eller lägga till en menyrad — och se att det faktiskt syns här efteråt.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><!--FIELD:company_name-->Kafé Lyktan<!--/FIELD:company_name--> — testsajt, © <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
