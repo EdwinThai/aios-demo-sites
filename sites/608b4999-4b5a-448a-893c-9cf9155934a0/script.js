@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+
+  // Manuellt satt via portalens "Tillfälligt stängt"-flöde — sätts av och
+  // tas bort av företaget själva i chatten igen, ingen datumlogik här.
+  var TEMPORARY_CLOSURE = { active: true, message: "Stängt för semester t.o.m. v40" };
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -25,6 +29,18 @@
     var statusEl = document.getElementById('open-status');
     if (!statusEl) return;
 
+
+    if (TEMPORARY_CLOSURE.active) {
+      statusEl.innerHTML = '';
+      var closedDot = document.createElement('span');
+      closedDot.className = 'dot';
+      var closedLabel = document.createElement('span');
+      closedLabel.textContent = TEMPORARY_CLOSURE.message;
+      statusEl.classList.remove('is-open');
+      statusEl.appendChild(closedDot);
+      statusEl.appendChild(closedLabel);
+      return;
+    }
     var now = new Date();
     var formatter = new Intl.DateTimeFormat('sv-SE', {
       timeZone: 'Europe/Stockholm', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
