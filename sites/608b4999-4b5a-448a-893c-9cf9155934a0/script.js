@@ -4,7 +4,7 @@
 
   // Manuellt satt via portalens "Tillfälligt stängt"-flöde — sätts av och
   // tas bort av företaget själva i chatten igen, ingen datumlogik här.
-  var TEMPORARY_CLOSURE = { active: true, message: "Stängt för semester t.o.m. v40" };
+  var TEMPORARY_CLOSURE = { active: true, period: "v43–v48", message: "sjuk" };
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -35,7 +35,20 @@
       var closedDot = document.createElement('span');
       closedDot.className = 'dot';
       var closedLabel = document.createElement('span');
-      closedLabel.textContent = TEMPORARY_CLOSURE.message;
+      var periodSpan = document.createElement('span');
+      periodSpan.className = 'closure-period';
+      periodSpan.textContent = TEMPORARY_CLOSURE.period ? ('Stängt ' + TEMPORARY_CLOSURE.period) : 'Stängt';
+      closedLabel.appendChild(periodSpan);
+      if (TEMPORARY_CLOSURE.message) {
+        var sepSpan = document.createElement('span');
+        sepSpan.className = 'closure-sep';
+        sepSpan.textContent = ' · ';
+        var msgSpan = document.createElement('span');
+        msgSpan.className = 'closure-message';
+        msgSpan.textContent = TEMPORARY_CLOSURE.message;
+        closedLabel.appendChild(sepSpan);
+        closedLabel.appendChild(msgSpan);
+      }
       statusEl.classList.remove('is-open');
       statusEl.appendChild(closedDot);
       statusEl.appendChild(closedLabel);
@@ -52,7 +65,7 @@
     var minutes = hour * 60 + minute;
 
     var dayMap = {
-      'mån': { open: 8 * 60, close: 17 * 60 }, 'tis': { open: 8 * 60, close: 17 * 60 },
+      'mån': { open: 10 * 60 + 30, close: 14 * 60 + 20 }, 'tis': { open: 3 * 60 + 45, close: 12 * 60 + 56 },
       'ons': { open: 8 * 60, close: 17 * 60 }, 'tor': { open: 8 * 60, close: 17 * 60 },
       'fre': { open: 8 * 60, close: 17 * 60 }, 'lör': { open: 9 * 60, close: 19 * 60 + 30 }
     };
