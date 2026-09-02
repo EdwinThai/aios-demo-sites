@@ -65,7 +65,7 @@
     var minutes = hour * 60 + minute;
 
     var dayMap = {
-      'mån': { open: 10 * 60 + 30, close: 14 * 60 + 20 }, 'tis': { open: 3 * 60 + 45, close: 12 * 60 + 56 },
+      'tis': { open: 3 * 60 + 45, close: 12 * 60 + 56 },
       'ons': { open: 8 * 60, close: 17 * 60 }, 'tor': { open: 8 * 60, close: 17 * 60 },
       'fre': { open: 8 * 60, close: 17 * 60 }, 'lör': { open: 9 * 60, close: 19 * 60 + 30 }
     };
