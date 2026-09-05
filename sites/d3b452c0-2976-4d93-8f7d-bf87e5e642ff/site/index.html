@@ -4,22 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ellesse – Frisörsalong i Ulricehamn</title>
-  <meta name="description" content="Ellesse är en personlig frisörsalong på Storgatan 15 i Ulricehamn. Vi erbjuder klippning, färgning, extensions, hårvård och trendiga frisyrer. Välkommen att boka tid.">
+  <meta name="description" content="Ellesse är en frisörsalong på Storgatan 15 i Ulricehamn. Vi erbjuder klippning, hårvård, extensions, färgning och trendiga frisyrer. Boka tid via telefon.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
+  <!-- HEADER / NAV -->
+  <header class="site-header" id="top">
     <div class="header-inner">
       <a href="index.html" class="logo-link">
-        <img src="logo.jpg" alt="Ellesse" class="site-logo">
+        <img src="logo.jpg" alt="<!--FIELD:company_name-->Ellesse<!--/FIELD:company_name-->" class="site-logo">
       </a>
-      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="site-nav">
+      <nav class="main-nav" id="main-nav" aria-label="Huvudnavigation">
         <ul>
           <li><a href="#om">Om oss</a></li>
           <li><a href="#tjanster">Tjänster</a></li>
@@ -28,383 +25,413 @@
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-media">
-        <img
-          src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaGFpciUyMHNhbG9uJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc4NjA0Mzc1NXww&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Salongsinteriör, stämningsbild"
-          class="hero-img"
-          loading="eager">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content fade-in-elem">
-        <p class="hero-eyebrow">Frisörsalong i Ulricehamn</p>
-        <h1>Här känner<br>du dig sedd.</h1>
-        <p class="hero-lead">På Ellesse tar vi hand om ditt hår – och om dig. Välkommen till en salong där du alltid känns igen.</p>
-        <a href="#boka" class="btn btn-accent">Boka tid</a>
-      </div>
-      <div class="hero-photo-credit">
-        Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>
-      </div>
-    </section>
-
-    <!-- OM SALONGEN -->
-    <section class="about" id="om">
-      <div class="about-inner">
-        <div class="about-text fade-in-elem">
-          <h2>En salong byggd på förtroende</h2>
-          <p><!--FIELD:company_name-->Ellesse<!--/FIELD:company_name--> har funnits i Ulricehamn på <!--FIELD:address-->Storgatan 15<!--/FIELD:address--> och har vuxit fram genom personliga möten och omsorgsfullt arbete. Här handlar det inte om att ta sig igenom så många kunder som möjligt – det handlar om att du ska gå härifrån nöjd, och att du ska vilja komma tillbaka.</p>
-          <p>Vi lyssnar på vad du vill, ger ärliga råd och ser till att resultatet passar just dig. Stamkunder är vår stolthet, och nya besökare är alltid varmt välkomna.</p>
-        </div>
-        <div class="about-image-wrap">
-          <div class="about-image-frame">
-            <img
-              src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaGFpciUyMHNhbG9uJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc4NjA0Mzc1NXww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Salongsmiljö på Ellesse"
-              class="about-img">
-          </div>
-          <div class="about-image-badge">
-            <span class="badge-number">10+</span>
-            <span class="badge-label">nöjda kunder delar sin erfarenhet</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TJÄNSTER -->
-    <section class="services" id="tjanster">
-      <div class="wave-top">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,0 L0,0 Z" fill="#F5F0E8"/>
-        </svg>
-      </div>
-      <div class="services-inner">
-        <h2 class="fade-in-elem">Våra tjänster</h2>
-        <p class="services-intro fade-in-elem">Vi erbjuder ett brett utbud av frisörtjänster – från vardagsklippningen till en stor förändring.</p>
-
-        <div class="services-grid">
-
-          <!-- Klippning -->
-          <article class="service-card fade-in-elem">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwaGFpcmN1dCUyMHN0eWxpbmd8ZW58MHwwfHx8MTc4NzczNzAzOHww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Klippning"
-                    loading="lazy">
-                </div>
-                <div class="card-label">Klippning</div>
-              </div>
-              <div class="card-back">
-                <h3>Klippning</h3>
-                <p>En välgjord klippning anpassad efter ditt hår, din stil och ditt ansikte. Vi tar oss alltid tid att lyssna.</p>
-                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
-                <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@awcreativeut" target="_blank" rel="noopener">Adam Winger</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Hårvård -->
-          <article class="service-card fade-in-elem">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGNhcmUlMjB0cmVhdG1lbnQlMjBzYWxvbnxlbnwwfDB8fHwxNzg4NjA4MzAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Hårvård"
-                    loading="lazy">
-                </div>
-                <div class="card-label">Hårvård</div>
-              </div>
-              <div class="card-back">
-                <h3>Hårvård</h3>
-                <p>Behandlingar som återfuktar, stärker och återställer ditt hår – skräddarsytt efter hårets behov just nu.</p>
-                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
-                <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@lindsayrc81" target="_blank" rel="noopener">Lindsay Cash</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Extensions -->
-          <article class="service-card fade-in-elem">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1785456463151-623876d5b7af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGV4dGVuc2lvbnMlMjBzYWxvbnxlbnwwfDB8fHwxNzg4NjA4MzAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Extensions"
-                    loading="lazy">
-                </div>
-                <div class="card-label">Extensions</div>
-              </div>
-              <div class="card-back">
-                <h3>Extensions</h3>
-                <p>Längd, volym och tjocklek – vi hjälper dig att få det hår du drömt om med professionellt utförda extensions.</p>
-                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
-                <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@yovankaloriasalon" target="_blank" rel="noopener">Yovanka Loria Salon</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Färgning -->
-          <article class="service-card fade-in-elem">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1617391654484-2894196c2cc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGNvbG9yaW5nJTIwc2Fsb258ZW58MHwwfHx8MTc4NzczNzA0MHww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Färgning"
-                    loading="lazy">
-                </div>
-                <div class="card-label">Färgning</div>
-              </div>
-              <div class="card-back">
-                <h3>Färgning</h3>
-                <p>Från diskret ansatsfärg till helhetsomfärgning och slingor – vi hittar rätt ton tillsammans med dig.</p>
-                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
-                <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@primipil" target="_blank" rel="noopener">Maksim Chernishev</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-              </div>
-            </div>
-          </article>
-
-          <!-- Trendiga frisyrer -->
-          <article class="service-card fade-in-elem">
-            <div class="card-inner">
-              <div class="card-front">
-                <div class="card-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1762331207337-42c09537103d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8dHJlbmR5JTIwbW9kZXJuJTIwaGFpcnN0eWxlcyUyMGZhc2hpb258ZW58MHwwfHx8MTc4ODYwODMwNHww&ixlib=rb-4.1.0&q=80&w=1080"
-                    alt="Trendiga frisyrer"
-                    loading="lazy">
-                </div>
-                <div class="card-label">Trendiga frisyrer</div>
-              </div>
-              <div class="card-back">
-                <h3>Trendiga frisyrer</h3>
-                <p>Vill du testa något nytt? Vi följer trenderna och hjälper dig hitta en look som passar just dig – inte bara säsongen.</p>
-                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
-                <p class="card-photo-credit">Foto av <a href="https://unsplash.com/@zulfugarkarimov" target="_blank" rel="noopener">Zulfugar Karimov</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
-              </div>
-            </div>
-          </article>
-
-        </div>
-        <p class="services-note fade-in-elem">Kontakta oss för att veta mer om vad vi erbjuder eller om du undrar om vi kan hjälpa dig med något specifikt.</p>
-      </div>
-    </section>
-
-    <!-- ÖPPETTIDER -->
-    <section class="hours" id="oppettider">
-      <div class="hours-inner">
-        <div class="hours-text fade-in-elem">
-          <h2>Öppettider</h2>
-          <p>Välkommen in – inga långa väntetider, bara en personlig service när det passar dig.</p>
-        </div>
-        <!--FIELD:opening_hours-->
-        <div class="hours-table fade-in-elem">
-          <div class="hours-row">
-            <span class="day">Måndag</span>
-            <span class="time">09:00–18:00</span>
-          </div>
-          <div class="hours-row">
-            <span class="day">Tisdag</span>
-            <span class="time">09:00–18:00</span>
-          </div>
-          <div class="hours-row closed">
-            <span class="day">Onsdag</span>
-            <span class="time">Stängt</span>
-          </div>
-          <div class="hours-row">
-            <span class="day">Torsdag</span>
-            <span class="time">09:00–18:00</span>
-          </div>
-          <div class="hours-row">
-            <span class="day">Fredag</span>
-            <span class="time">09:00–16:00</span>
-          </div>
-          <div class="hours-row closed">
-            <span class="day">Lördag</span>
-            <span class="time">Stängt</span>
-          </div>
-          <div class="hours-row closed">
-            <span class="day">Söndag</span>
-            <span class="time">Stängt</span>
-          </div>
-        </div>
-        <!--/FIELD:opening_hours-->
-        <div class="open-indicator fade-in-elem" id="open-indicator" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- BOKA TID -->
-    <section class="booking" id="boka">
-      <div class="wave-top wave-top--cream">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,0 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="#C8A898"/>
-        </svg>
-      </div>
-      <div class="booking-inner fade-in-elem">
-        <h2>Boka din tid</h2>
-        <p>Ring oss direkt så bokar vi in en tid som passar dig. Inga krångliga appar – bara ett samtal.</p>
-        <!--FIELD:booking_url--><p class="booking-note">Vi har för tillfället ingen onlinebokning – ring oss gärna direkt.</p><!--/FIELD:booking_url-->
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-image-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwaGFpciUyMHNhbG9uJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc4NjA0Mzc1NXww&ixlib=rb-4.1.0&q=80&w=1080"
+        alt="Salongsmiljö – stämningsbild"
+        class="hero-img"
+        loading="eager">
+    </div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Frisörsalong i Ulricehamn</span>
+      <h1>Här känns<br>du igen.</h1>
+      <p class="hero-lead">Välkommen till Ellesse på Storgatan 15 — en salong där du alltid möts av samma ansikten och lämnar med just den frisyr du hade i tanken.</p>
+      <div class="hero-cta-group">
         <!--FIELD:phone-->
-        <a href="tel:0321-12377" class="btn btn-light">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.67a16 16 0 0 0 5.94 5.94l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
-          Ring 0321-123 77
+        <a href="tel:0321-12377" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.52 2 2 0 0 1 3.58 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Ring oss: 0321-123 77
         </a>
         <!--/FIELD:phone-->
-        <p class="booking-alt">Eller mejla oss på <!--FIELD:email--><a href="mailto:julieto1977@gmail.com">julieto1977@gmail.com</a><!--/FIELD:email--></p>
+        <!--FIELD:booking_url-->
+        <a href="mailto:julieto1977@gmail.com" class="btn btn-secondary">
+          Skicka bokningsförfrågan
+        </a>
+        <!--/FIELD:booking_url-->
       </div>
-    </section>
+    </div>
+    <div class="hero-photo-credit">Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></div>
+  </section>
 
-    <!-- OMDÖMEN -->
-    <section class="reviews" id="omdomen">
-      <div class="reviews-inner">
-        <h2 class="fade-in-elem">Vad kunderna säger</h2>
-        <!--FIELD:google_rating-->
-        <div class="rating-block fade-in-elem">
-          <div class="stars" aria-label="3.8 av 5 stjärnor">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="rating-number">3,8 av 5</p>
-          <p class="rating-source">Betyg på Google (10 recensioner)</p>
+  <!-- KURV-ÖVERGÅNG -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F5F0E8"/>
+    </svg>
+  </div>
+
+  <!-- OM SALONGEN -->
+  <section class="about" id="om">
+    <div class="about-inner fade-in">
+      <div class="about-text">
+        <span class="section-eyebrow">Om Ellesse</span>
+        <h2>En plats du väljer<br>att komma tillbaka till</h2>
+        <p>Ellesse är en frisörsalong mitt i Ulricehamn. Hos oss handlar det om mer än en klippning — det handlar om att du ska gå därifrån och känna dig nöjd, gång efter gång.</p>
+        <p>Vi lyssnar på vad du vill, pratar igenom möjligheterna och gör jobbet ordentligt. Inga dolda överraskningar, inga onödiga krångel. Bara ett bra resultat och ett trevligt besök.</p>
+        <a href="#boka" class="btn btn-outline">Boka ett besök</a>
+      </div>
+      <div class="about-image-wrap">
+        <div class="about-image-block">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwaGFpcmN1dCUyMHN0eWxpbmd8ZW58MHwwfHx8MTc4NzczNzAzOHww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Klippning i salong"
+            class="about-img">
         </div>
-        <!--/FIELD:google_rating-->
-        <!--FIELD:booking_platform_rating--><!--/FIELD:booking_platform_rating-->
-        <div class="review-cards">
-          <blockquote class="review-card fade-in-elem">
-            <p>"Alltid ett trevligt bemötande och resultatet är precis som jag ville ha det."</p>
-            <cite>— Stamkund, Ulricehamn</cite>
-          </blockquote>
-          <blockquote class="review-card fade-in-elem">
-            <p>"Känslan av att verkligen bli lyssnad på – det är det som gör skillnaden."</p>
-            <cite>— Återkommande kund</cite>
-          </blockquote>
-        </div>
-        <p class="reviews-disclaimer fade-in-elem">Citaten ovan är representativa för den upplevelse kunderna beskriver. Läs fler recensioner på <a href="https://www.google.com/maps/search/Ellesse+Ulricehamn" target="_blank" rel="noopener">Google</a>.</p>
+        <div class="about-image-accent"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- KONTAKT -->
-    <section class="contact" id="kontakt">
-      <div class="wave-top wave-top--white">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,60 C480,0 960,80 1440,20 L1440,0 L0,0 Z" fill="#F5F0E8"/>
-        </svg>
+  <!-- TJÄNSTER -->
+  <section class="services" id="tjanster">
+    <div class="services-inner">
+      <div class="services-header fade-in">
+        <span class="section-eyebrow">Vad vi erbjuder</span>
+        <h2>Tjänster</h2>
+        <p class="services-intro"><!--FIELD:services-->Klippning, hårvård, extensions, färgning och trendiga frisyrer — vi tar hand om det du behöver.<!--/FIELD:services--></p>
       </div>
-      <div class="contact-inner">
-        <div class="contact-info fade-in-elem">
-          <h2>Hitta oss</h2>
 
-          <div class="contact-block">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <!--FIELD:address-->
-            <p>Storgatan 15, Rådmansgränd<br>523 30 Ulricehamn</p>
-            <!--/FIELD:address-->
-          </div>
+      <div class="service-cards">
 
-          <div class="contact-block">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.56 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.67a16 16 0 0 0 5.94 5.94l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
-            <!--FIELD:phone-->
-            <a href="tel:0321-12377">0321-123 77</a>
-            <!--/FIELD:phone-->
-          </div>
-
-          <div class="contact-block">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <!--FIELD:email-->
-            <a href="mailto:julieto1977@gmail.com">julieto1977@gmail.com</a>
-            <!--/FIELD:email-->
-          </div>
-
-          <div class="contact-block hours-mini">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <!--FIELD:opening_hours-->
-            <div>
-              <p>Mån–Tis: 09:00–18:00</p>
-              <p>Ons: Stängt</p>
-              <p>Tor: 09:00–18:00</p>
-              <p>Fre: 09:00–16:00</p>
-              <p>Lör–Sön: Stängt</p>
+        <!-- Klippning -->
+        <article class="service-card fade-in">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMHNhbG9uJTIwaGFpcmN1dCUyMHN0eWxpbmd8ZW58MHwwfHx8MTc4NzczNzAzOHww&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Klippning"
+                  loading="lazy">
+              </div>
+              <div class="card-front-label">
+                <h3>Klippning</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
             </div>
-            <!--/FIELD:opening_hours-->
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Klippning</h3>
+                <p>Vi klipper alla hårtyper och längder. Berätta vad du är ute efter — vi hjälper dig att hitta en frisyr som passar just dig.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#boka" class="btn btn-primary btn-sm">Boka</a>
+              </div>
+            </div>
           </div>
+          <p class="photo-credit">Foto av <a href="https://unsplash.com/@awcreativeut" target="_blank" rel="noopener">Adam Winger</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </article>
 
-          <div class="social-links">
-            <!--FIELD:instagram-->
-            <a href="https://www.instagram.com/ellesseulricehamn/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              Instagram
-            </a>
-            <!--/FIELD:instagram-->
-            <!--FIELD:facebook-->
-            <a href="https://www.facebook.com/p/Ellesse-Ulricehamn-100054414103600/" class="social-link" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              Facebook
-            </a>
-            <!--/FIELD:facebook-->
+        <!-- Hårvård -->
+        <article class="service-card fade-in">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGNhcmUlMjB0cmVhdG1lbnQlMjBzYWxvbnxlbnwwfDB8fHwxNzg4NjA4MzAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Hårvård"
+                  loading="lazy">
+              </div>
+              <div class="card-front-label">
+                <h3>Hårvård</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Hårvård</h3>
+                <p>Behandlingar som ger håret näring, glans och styrka. Perfekt när håret behöver lite extra omsorg.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#boka" class="btn btn-primary btn-sm">Boka</a>
+              </div>
+            </div>
           </div>
-        </div>
+          <p class="photo-credit">Foto av <a href="https://unsplash.com/@lindsayrc81" target="_blank" rel="noopener">Lindsay Cash</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </article>
 
-        <div class="contact-map fade-in-elem">
-          <iframe
-            title="Karta till Ellesse Ulricehamn"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72FlosuiXBVgB9M5_sMxSwdcI&q=Storgatan+15,+Ulricehamn"
-            width="100%"
-            height="360"
-            style="border:0;"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Extensions -->
+        <article class="service-card fade-in">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1785456463151-623876d5b7af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGV4dGVuc2lvbnMlMjBzYWxvbnxlbnwwfDB8fHwxNzg4NjA4MzAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Extensions"
+                  loading="lazy">
+              </div>
+              <div class="card-front-label">
+                <h3>Extensions</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Extensions</h3>
+                <p>Längre, fylligare hår med professionellt applicerade extensions. Vi rådgör om vilken metod som passar ditt hår bäst.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#boka" class="btn btn-primary btn-sm">Boka</a>
+              </div>
+            </div>
+          </div>
+          <p class="photo-credit">Foto av <a href="https://unsplash.com/@yovankaloriasalon" target="_blank" rel="noopener">Yovanka Loria Salon</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </article>
+
+        <!-- Färgning -->
+        <article class="service-card fade-in">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1617391654484-2894196c2cc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8aGFpciUyMGNvbG9yaW5nJTIwc2Fsb258ZW58MHwwfHx8MTc4NzczNzA0MHww&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Färgning"
+                  loading="lazy">
+              </div>
+              <div class="card-front-label">
+                <h3>Färgning</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Färgning</h3>
+                <p>Från diskreta nyanser till djärva färger — vi hjälper dig att hitta rätt ton och lägger färgen med omsorg och precision.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#boka" class="btn btn-primary btn-sm">Boka</a>
+              </div>
+            </div>
+          </div>
+          <p class="photo-credit">Foto av <a href="https://unsplash.com/@primipil" target="_blank" rel="noopener">Maksim Chernishev</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </article>
+
+        <!-- Trendiga frisyrer -->
+        <article class="service-card fade-in">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1762331207337-42c09537103d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDE3MjMyfDB8MXxzZWFyY2h8MXx8dHJlbmR5JTIwbW9kZXJuJTIwaGFpcnN0eWxlcyUyMGZhc2hpb258ZW58MHwwfHx8MTc4ODYwODMwNHww&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="Trendiga frisyrer"
+                  loading="lazy">
+              </div>
+              <div class="card-front-label">
+                <h3>Trendiga frisyrer</h3>
+                <span class="card-hint">Läs mer</span>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-content">
+                <h3>Trendiga frisyrer</h3>
+                <p>Håller du koll på aktuella trender? Vi också. Kom in med en bild eller en idé så förverkligar vi den.</p>
+                <!--FIELD:prices--><p class="price-placeholder">Företagets priser här</p><!--/FIELD:prices-->
+                <a href="#boka" class="btn btn-primary btn-sm">Boka</a>
+              </div>
+            </div>
+          </div>
+          <p class="photo-credit">Foto av <a href="https://unsplash.com/@zulfugarkarimov" target="_blank" rel="noopener">Zulfugar Karimov</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ÖPPETTIDER -->
+  <section class="hours" id="oppettider">
+    <div class="hours-inner fade-in">
+      <span class="section-eyebrow section-eyebrow--light">Hitta oss</span>
+      <h2>Öppettider</h2>
+      <!--FIELD:opening_hours-->
+      <table class="hours-table">
+        <tbody>
+          <tr><th scope="row">Måndag</th><td>09:00–18:00</td></tr>
+          <tr><th scope="row">Tisdag</th><td>09:00–18:00</td></tr>
+          <tr class="closed"><th scope="row">Onsdag</th><td>Stängt</td></tr>
+          <tr><th scope="row">Torsdag</th><td>09:00–18:00</td></tr>
+          <tr><th scope="row">Fredag</th><td>09:00–16:00</td></tr>
+          <tr class="closed"><th scope="row">Lördag</th><td>Stängt</td></tr>
+          <tr class="closed"><th scope="row">Söndag</th><td>Stängt</td></tr>
+        </tbody>
+      </table>
+      <!--/FIELD:opening_hours-->
+      <div class="open-status" id="open-status" aria-live="polite">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Kontrollerar öppettider…</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOKA TID CTA -->
+  <section class="booking" id="boka">
+    <div class="booking-inner fade-in">
+      <div class="booking-text">
+        <span class="section-eyebrow">Boka tid</span>
+        <h2>Redo för ett nytt hår?</h2>
+        <p>Det enklaste sättet att boka är att ringa oss direkt. Du kan också skicka ett mejl om du hellre gör det — vi återkommer så snart vi kan.</p>
+        <div class="booking-actions">
+          <!--FIELD:phone-->
+          <a href="tel:0321-12377" class="btn btn-primary btn-large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.52 2 2 0 0 1 3.58 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0321-123 77
+          </a>
+          <!--/FIELD:phone-->
+          <!--FIELD:email-->
+          <a href="mailto:julieto1977@gmail.com" class="btn btn-outline btn-large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Skicka mejl
+          </a>
+          <!--/FIELD:email-->
         </div>
       </div>
-    </section>
+      <div class="booking-deco" aria-hidden="true"></div>
+    </div>
+  </section>
 
-  </main>
+  <!-- KURV-ÖVERGÅNG -->
+  <div class="wave-divider wave-divider--up" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C480,0 960,80 1440,40 L1440,0 L0,0 Z" fill="#F5F0E8"/>
+    </svg>
+  </div>
+
+  <!-- SOCIALT BEVIS / OMDÖMEN -->
+  <section class="reviews" id="omdomen">
+    <div class="reviews-inner">
+      <span class="section-eyebrow">Vad kunderna säger</span>
+      <h2>Google-betyg</h2>
+      <!--FIELD:google_rating-->
+      <div class="rating-block fade-in">
+        <div class="stars" aria-label="3,8 av 5 stjärnor">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#C8A898" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#C8A898" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#C8A898" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#C8A898" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A898" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="rating-score">3,8 <span>/ 5</span></p>
+        <p class="rating-count">Baserat på 10 recensioner på Google</p>
+        <a href="https://www.google.com/maps/search/Ellesse+Ulricehamn" target="_blank" rel="noopener" class="btn btn-outline">Se alla recensioner</a>
+      </div>
+      <!--/FIELD:google_rating-->
+      <!--FIELD:booking_platform_rating--><!-- Inget betyg från bokningsplattform tillgängligt --><!--/FIELD:booking_platform_rating-->
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="contact" id="kontakt">
+    <div class="contact-inner">
+      <div class="contact-info fade-in">
+        <span class="section-eyebrow section-eyebrow--light">Kontakt</span>
+        <h2>Hitta oss</h2>
+
+        <div class="contact-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <!--FIELD:address-->
+          <address>Storgatan 15, Rådmansgränd<br>523 30 Ulricehamn</address>
+          <!--/FIELD:address-->
+        </div>
+
+        <div class="contact-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.52 2 2 0 0 1 3.58 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <!--FIELD:phone-->
+          <a href="tel:0321-12377">0321-123 77</a>
+          <!--/FIELD:phone-->
+        </div>
+
+        <div class="contact-item">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <!--FIELD:email-->
+          <a href="mailto:julieto1977@gmail.com">julieto1977@gmail.com</a>
+          <!--/FIELD:email-->
+        </div>
+
+        <div class="contact-hours">
+          <!--FIELD:opening_hours-->
+          <ul class="hours-mini">
+            <li><span>Mån–Tis</span><span>09:00–18:00</span></li>
+            <li class="closed"><span>Ons</span><span>Stängt</span></li>
+            <li><span>Tors</span><span>09:00–18:00</span></li>
+            <li><span>Fre</span><span>09:00–16:00</span></li>
+            <li class="closed"><span>Lör–Sön</span><span>Stängt</span></li>
+          </ul>
+          <!--/FIELD:opening_hours-->
+        </div>
+
+        <div class="social-links">
+          <!--FIELD:facebook-->
+          <a href="https://www.facebook.com/p/Ellesse-Ulricehamn-100054414103600/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <!--/FIELD:facebook-->
+          <!--FIELD:instagram-->
+          <a href="https://www.instagram.com/ellesseulricehamn/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <!--/FIELD:instagram-->
+        </div>
+      </div>
+
+      <div class="contact-map fade-in">
+        <!--FIELD:address-->
+        <iframe
+          title="Karta till Ellesse, Storgatan 15, Ulricehamn"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=Storgatan+15,+Ulricehamn"
+          width="100%"
+          height="360"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!--/FIELD:address-->
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <a href="index.html" class="footer-logo">
-        <img src="logo.jpg" alt="Ellesse" class="footer-logo-img">
-      </a>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <strong><!--FIELD:company_name-->Ellesse<!--/FIELD:company_name--></strong><br>
-          <!--FIELD:address-->Storgatan 15, Rådmansgränd<br>523 30 Ulricehamn<!--/FIELD:address-->
-        </div>
-        <div class="footer-col">
-          <!--FIELD:phone--><a href="tel:0321-12377">0321-123 77</a><!--/FIELD:phone--><br>
-          <!--FIELD:email--><a href="mailto:julieto1977@gmail.com">julieto1977@gmail.com</a><!--/FIELD:email-->
-        </div>
-        <div class="footer-col">
-          <!--FIELD:instagram--><a href="https://www.instagram.com/ellesseulricehamn/" target="_blank" rel="noopener">Instagram</a><!--/FIELD:instagram--><br>
-          <!--FIELD:facebook--><a href="https://www.facebook.com/p/Ellesse-Ulricehamn-100054414103600/" target="_blank" rel="noopener">Facebook</a><!--/FIELD:facebook-->
-        </div>
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="logo.jpg" alt="Ellesse" class="footer-logo">
+        </a>
+        <p>Frisörsalong i Ulricehamn sedan länge.<br>Välkommen in.</p>
       </div>
-      <div class="footer-credits">
-        <p>
-          Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &middot;
-          Foto av <a href="https://unsplash.com/@awcreativeut" target="_blank" rel="noopener">Adam Winger</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &middot;
-          Foto av <a href="https://unsplash.com/@lindsayrc81" target="_blank" rel="noopener">Lindsay Cash</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &middot;
-          Foto av <a href="https://unsplash.com/@yovankaloriasalon" target="_blank" rel="noopener">Yovanka Loria Salon</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &middot;
-          Foto av <a href="https://unsplash.com/@primipil" target="_blank" rel="noopener">Maksim Chernishev</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> &middot;
-          Foto av <a href="https://unsplash.com/@zulfugarkarimov" target="_blank" rel="noopener">Zulfugar Karimov</a> på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>
-        </p>
-        <p>Bilderna är exempelbilder och byts enkelt ut mot era egna.</p>
-        <p class="footer-copy">&copy; 2024 Ellesse Ulricehamn</p>
+      <div class="footer-nav">
+        <h3>Snabblänkar</h3>
+        <ul>
+          <li><a href="#om">Om oss</a></li>
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#oppettider">Öppettider</a></li>
+          <li><a href="#boka">Boka tid</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
       </div>
+      <div class="footer-contact">
+        <h3>Kontakt</h3>
+        <!--FIELD:phone--><p><a href="tel:0321-12377">0321-123 77</a></p><!--/FIELD:phone-->
+        <!--FIELD:email--><p><a href="mailto:julieto1977@gmail.com">julieto1977@gmail.com</a></p><!--/FIELD:email-->
+        <!--FIELD:address--><p>Storgatan 15, Ulricehamn</p><!--/FIELD:address-->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="photo-credits-line">
+        Foto av <a href="https://unsplash.com/@gregtrow" target="_blank" rel="noopener">Greg Trowman</a>,
+        <a href="https://unsplash.com/@awcreativeut" target="_blank" rel="noopener">Adam Winger</a>,
+        <a href="https://unsplash.com/@lindsayrc81" target="_blank" rel="noopener">Lindsay Cash</a>,
+        <a href="https://unsplash.com/@yovankaloriasalon" target="_blank" rel="noopener">Yovanka Loria Salon</a>,
+        <a href="https://unsplash.com/@primipil" target="_blank" rel="noopener">Maksim Chernishev</a> &amp;
+        <a href="https://unsplash.com/@zulfugarkarimov" target="_blank" rel="noopener">Zulfugar Karimov</a>
+        på <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.
+        Bilderna är exempelbilder och byts enkelt ut mot era egna.
+      </p>
+      <p class="copyright">&copy; <span id="year"></span> <!--FIELD:company_name-->Ellesse<!--/FIELD:company_name-->, Ulricehamn</p>
     </div>
   </footer>
 
