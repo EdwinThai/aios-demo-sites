@@ -1,118 +1,98 @@
-/* =========================================================
-   ELLESSE — script.js
-   ========================================================= */
+/* ===== ELLESSE – SCRIPT.JS ===== */
 
-// ── Year in footer ─────────────────────────────────────────
-document.getElementById('year').textContent = new Date().getFullYear();
+(function () {
+  'use strict';
 
-// ── Mobile nav ─────────────────────────────────────────────
-const navToggle = document.getElementById('nav-toggle');
-const mainNav   = document.getElementById('main-nav');
+  /* ---- MOBILE MENU ---- */
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.getElementById('main-nav');
 
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    mainNav.classList.toggle('is-open', !expanded);
-    document.body.style.overflow = !expanded ? 'hidden' : '';
-  });
-
-  // Close nav when a link is clicked
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.setAttribute('aria-expanded', 'false');
-      mainNav.classList.remove('is-open');
-      document.body.style.overflow = '';
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('is-open', !expanded);
+      document.body.style.overflow = expanded ? '' : 'hidden';
     });
-  });
-}
 
-// ── Scroll fade-in (IntersectionObserver) ─────────────────
-const fadeEls = document.querySelectorAll('.fade-in');
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+    // Close on nav link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+        document.body.style.overflow = '';
       });
-    },
-    { threshold: 0.12 }
-  );
+    });
+  }
 
-  fadeEls.forEach(el => observer.observe(el));
-} else {
-  // Fallback: show all immediately
-  fadeEls.forEach(el => el.classList.add('is-visible'));
-}
+  /* ---- SCROLL FADE-IN ---- */
+  const fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    fadeEls.forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show all
+    fadeEls.forEach(el => el.classList.add('is-visible'));
+  }
 
-// ── Mobile card toggle (replaces hover-flip on touch) ──────
-function isTouchDevice() {
-  return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-}
+  /* ---- FLIP CARDS ON TOUCH/CLICK (mobile) ---- */
+  const flipCards = document.querySelectorAll('.flip-card');
+  const isTouch = () => window.matchMedia('(hover: none)').matches;
 
-if (isTouchDevice()) {
-  document.querySelectorAll('.service-card').forEach(card => {
+  flipCards.forEach(card => {
     card.addEventListener('click', () => {
-      card.classList.toggle('tapped');
+      if (isTouch()) {
+        card.classList.toggle('flipped');
+      }
     });
   });
-}
 
-// ── Live opening-hours status ──────────────────────────────
-// Based on verified opening hours:
-// Mon: 09-18, Tue: 09-18, Wed: closed,
-// Thu: 09-18, Fri: 09-16, Sat: closed, Sun: closed
-function checkOpenStatus() {
-  const statusDot  = document.getElementById('status-dot');
-  const statusText = document.getElementById('status-text');
-  if (!statusDot || !statusText) return;
+  /* ---- OPEN/CLOSED STATUS INDICATOR ---- */
+  const statusEl = document.getElementById('open-status');
+  if (statusEl) {
+    const schedule = {
+      // day (0=Sun): [openHour, openMin, closeHour, closeMin] or null if closed
+      0: null,                    // Sunday
+      1: [9, 0, 18, 0],           // Monday
+      2: [9, 0, 18, 0],           // Tuesday
+      3: null,                    // Wednesday
+      4: [9, 0, 18, 0],           // Thursday
+      5: [9, 0, 16, 0],           // Friday
+      6: null,                    // Saturday
+    };
 
-  const now     = new Date();
-  const day     = now.getDay();   // 0=Sun,1=Mon,...,6=Sat
-  const hour    = now.getHours();
-  const minutes = now.getMinutes();
-  const time    = hour * 60 + minutes;
+    function isOpenNow() {
+      const now  = new Date();
+      const day  = now.getDay();
+      const hours = schedule[day];
+      if (!hours) return false;
+      const [oh, om, ch, cm] = hours;
+      const nowMins  = now.getHours() * 60 + now.getMinutes();
+      const openMins = oh * 60 + om;
+      const closeMins= ch * 60 + cm;
+      return nowMins >= openMins && nowMins < closeMins;
+    }
 
-  const opens = 9 * 60;      // 09:00
-  const closeWeekday = 18 * 60; // 18:00
-  const closeFriday  = 16 * 60; // 16:00
+    function renderStatus() {
+      const open = isOpenNow();
+      statusEl.className = 'open-status ' + (open ? 'is-open' : 'is-closed');
+      statusEl.innerHTML = '<span class="dot" aria-hidden="true"></span>' +
+        (open ? 'Just nu öppet' : 'Just nu stängt');
+    }
 
-  let isOpen = false;
-  let nextInfo = '';
-
-  if (day === 1 || day === 2) {
-    // Mon, Tue: 09–18
-    isOpen = time >= opens && time < closeWeekday;
-    nextInfo = isOpen ? 'Stänger 18:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar igen måndag 09:00');
-  } else if (day === 3) {
-    // Wed: closed
-    isOpen = false;
-    nextInfo = 'Öppnar torsdag 09:00';
-  } else if (day === 4) {
-    // Thu: 09–18
-    isOpen = time >= opens && time < closeWeekday;
-    nextInfo = isOpen ? 'Stänger 18:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar måndag 09:00');
-  } else if (day === 5) {
-    // Fri: 09–16
-    isOpen = time >= opens && time < closeFriday;
-    nextInfo = isOpen ? 'Stänger 16:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar måndag 09:00');
-  } else {
-    // Sat (6), Sun (0)
-    isOpen = false;
-    nextInfo = 'Öppnar måndag 09:00';
+    renderStatus();
+    // Refresh every minute
+    setInterval(renderStatus, 60000);
   }
 
-  if (isOpen) {
-    statusDot.className  = 'status-dot open';
-    statusText.textContent = 'Öppet nu — ' + nextInfo;
-  } else {
-    statusDot.className  = 'status-dot closed-dot';
-    statusText.textContent = 'Stängt just nu — ' + nextInfo;
-  }
-}
-
-checkOpenStatus();
+})();
