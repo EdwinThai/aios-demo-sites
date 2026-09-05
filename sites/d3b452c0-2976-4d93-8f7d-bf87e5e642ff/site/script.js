@@ -1,119 +1,118 @@
-/* ============================================================
+/* =========================================================
    ELLESSE — script.js
-   ============================================================ */
+   ========================================================= */
 
-// --- MOBILE NAV TOGGLE ---
-(function () {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  if (!toggle || !nav) return;
+// ── Year in footer ─────────────────────────────────────────
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  toggle.addEventListener('click', function () {
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('is-open', !expanded);
+// ── Mobile nav ─────────────────────────────────────────────
+const navToggle = document.getElementById('nav-toggle');
+const mainNav   = document.getElementById('main-nav');
+
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    mainNav.classList.toggle('is-open', !expanded);
+    document.body.style.overflow = !expanded ? 'hidden' : '';
   });
 
-  // Close nav on link click
-  nav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      toggle.setAttribute('aria-expanded', 'false');
-      nav.classList.remove('is-open');
+  // Close nav when a link is clicked
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('is-open');
+      document.body.style.overflow = '';
     });
   });
-})();
+}
 
-// --- SCROLL FADE-IN (IntersectionObserver) ---
-(function () {
-  var elems = document.querySelectorAll('.fade-in-elem');
-  if (!elems.length) return;
+// ── Scroll fade-in (IntersectionObserver) ─────────────────
+const fadeEls = document.querySelectorAll('.fade-in');
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  elems.forEach(function (el) {
-    observer.observe(el);
-  });
-})();
-
-// --- OPEN / CLOSED INDICATOR ---
-(function () {
-  var indicator = document.getElementById('open-indicator');
-  if (!indicator) return;
-
-  // Opening hours: { day (0=Sun): { open: [h,m], close: [h,m] } | null }
-  var schedule = {
-    0: null,               // Sunday
-    1: { open: [9, 0], close: [18, 0] },  // Monday
-    2: { open: [9, 0], close: [18, 0] },  // Tuesday
-    3: null,               // Wednesday
-    4: { open: [9, 0], close: [18, 0] },  // Thursday
-    5: { open: [9, 0], close: [16, 0] },  // Friday
-    6: null                // Saturday
-  };
-
-  function check() {
-    var now = new Date();
-    var day = now.getDay();
-    var h = now.getHours();
-    var m = now.getMinutes();
-    var todaySchedule = schedule[day];
-
-    var dot = document.createElement('span');
-    dot.className = 'status-dot';
-    dot.setAttribute('aria-hidden', 'true');
-
-    var text = document.createElement('span');
-
-    if (
-      todaySchedule &&
-      (h > todaySchedule.open[0] ||
-        (h === todaySchedule.open[0] && m >= todaySchedule.open[1])) &&
-      (h < todaySchedule.close[0] ||
-        (h === todaySchedule.close[0] && m < todaySchedule.close[1]))
-    ) {
-      indicator.classList.add('is-open');
-      text.textContent = 'Öppet nu – stänger ' + pad(todaySchedule.close[0]) + ':' + pad(todaySchedule.close[1]);
-    } else {
-      indicator.classList.add('is-closed');
-      // Find next open day
-      var nextText = 'Stängt just nu';
-      for (var i = 1; i <= 7; i++) {
-        var nextDay = (day + i) % 7;
-        if (schedule[nextDay]) {
-          var dayNames = ['söndag', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag'];
-          nextText = 'Stängt just nu – öppnar ' + dayNames[nextDay] + ' ' +
-            pad(schedule[nextDay].open[0]) + ':' + pad(schedule[nextDay].open[1]);
-          break;
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
-      }
-      text.textContent = nextText;
-    }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-    indicator.innerHTML = '';
-    indicator.appendChild(dot);
-    indicator.appendChild(text);
+  fadeEls.forEach(el => observer.observe(el));
+} else {
+  // Fallback: show all immediately
+  fadeEls.forEach(el => el.classList.add('is-visible'));
+}
+
+// ── Mobile card toggle (replaces hover-flip on touch) ──────
+function isTouchDevice() {
+  return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+}
+
+if (isTouchDevice()) {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('tapped');
+    });
+  });
+}
+
+// ── Live opening-hours status ──────────────────────────────
+// Based on verified opening hours:
+// Mon: 09-18, Tue: 09-18, Wed: closed,
+// Thu: 09-18, Fri: 09-16, Sat: closed, Sun: closed
+function checkOpenStatus() {
+  const statusDot  = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+  if (!statusDot || !statusText) return;
+
+  const now     = new Date();
+  const day     = now.getDay();   // 0=Sun,1=Mon,...,6=Sat
+  const hour    = now.getHours();
+  const minutes = now.getMinutes();
+  const time    = hour * 60 + minutes;
+
+  const opens = 9 * 60;      // 09:00
+  const closeWeekday = 18 * 60; // 18:00
+  const closeFriday  = 16 * 60; // 16:00
+
+  let isOpen = false;
+  let nextInfo = '';
+
+  if (day === 1 || day === 2) {
+    // Mon, Tue: 09–18
+    isOpen = time >= opens && time < closeWeekday;
+    nextInfo = isOpen ? 'Stänger 18:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar igen måndag 09:00');
+  } else if (day === 3) {
+    // Wed: closed
+    isOpen = false;
+    nextInfo = 'Öppnar torsdag 09:00';
+  } else if (day === 4) {
+    // Thu: 09–18
+    isOpen = time >= opens && time < closeWeekday;
+    nextInfo = isOpen ? 'Stänger 18:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar måndag 09:00');
+  } else if (day === 5) {
+    // Fri: 09–16
+    isOpen = time >= opens && time < closeFriday;
+    nextInfo = isOpen ? 'Stänger 16:00' : (time < opens ? 'Öppnar 09:00' : 'Öppnar måndag 09:00');
+  } else {
+    // Sat (6), Sun (0)
+    isOpen = false;
+    nextInfo = 'Öppnar måndag 09:00';
   }
 
-  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  if (isOpen) {
+    statusDot.className  = 'status-dot open';
+    statusText.textContent = 'Öppet nu — ' + nextInfo;
+  } else {
+    statusDot.className  = 'status-dot closed-dot';
+    statusText.textContent = 'Stängt just nu — ' + nextInfo;
+  }
+}
 
-  check();
-})();
-
-// --- SERVICE CARD MOBILE TAP-TO-FLIP ---
-(function () {
-  if (window.matchMedia('(hover: hover)').matches) return; // desktop with hover, skip
-
-  var cards = document.querySelectorAll('.service-card');
-  cards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      this.classList.toggle('flipped');
-    });
-  });
-})();
+checkOpenStatus();
