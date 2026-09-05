@@ -1,112 +1,119 @@
-/* ==============================================
-   ELLESSE – script.js
-   Vanilla JS — no external dependencies
-   ============================================== */
+/* ============================================================
+   ELLESSE — script.js
+   ============================================================ */
 
-'use strict';
+// --- MOBILE NAV TOGGLE ---
+(function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
 
-// ---------- HEADER: scroll shadow ----------
-const header = document.querySelector('.site-header');
-if (header) {
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
+  toggle.addEventListener('click', function () {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('is-open', !expanded);
+  });
+
+  // Close nav on link click
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+    });
+  });
+})();
+
+// --- SCROLL FADE-IN (IntersectionObserver) ---
+(function () {
+  var elems = document.querySelectorAll('.fade-in-elem');
+  if (!elems.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  elems.forEach(function (el) {
+    observer.observe(el);
+  });
+})();
+
+// --- OPEN / CLOSED INDICATOR ---
+(function () {
+  var indicator = document.getElementById('open-indicator');
+  if (!indicator) return;
+
+  // Opening hours: { day (0=Sun): { open: [h,m], close: [h,m] } | null }
+  var schedule = {
+    0: null,               // Sunday
+    1: { open: [9, 0], close: [18, 0] },  // Monday
+    2: { open: [9, 0], close: [18, 0] },  // Tuesday
+    3: null,               // Wednesday
+    4: { open: [9, 0], close: [18, 0] },  // Thursday
+    5: { open: [9, 0], close: [16, 0] },  // Friday
+    6: null                // Saturday
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-}
 
-// ---------- MOBILE NAV ----------
-const navToggle = document.getElementById('nav-toggle');
-const mainNav   = document.getElementById('main-nav');
+  function check() {
+    var now = new Date();
+    var day = now.getDay();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var todaySchedule = schedule[day];
 
-if (navToggle && mainNav) {
-  navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('is-open');
-    navToggle.classList.toggle('is-open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
-    navToggle.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-  });
+    var dot = document.createElement('span');
+    dot.className = 'status-dot';
+    dot.setAttribute('aria-hidden', 'true');
 
-  // Close on nav link click
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('is-open');
-      navToggle.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.setAttribute('aria-label', 'Öppna meny');
-    });
-  });
+    var text = document.createElement('span');
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!header.contains(e.target)) {
-      mainNav.classList.remove('is-open');
-      navToggle.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+    if (
+      todaySchedule &&
+      (h > todaySchedule.open[0] ||
+        (h === todaySchedule.open[0] && m >= todaySchedule.open[1])) &&
+      (h < todaySchedule.close[0] ||
+        (h === todaySchedule.close[0] && m < todaySchedule.close[1]))
+    ) {
+      indicator.classList.add('is-open');
+      text.textContent = 'Öppet nu – stänger ' + pad(todaySchedule.close[0]) + ':' + pad(todaySchedule.close[1]);
+    } else {
+      indicator.classList.add('is-closed');
+      // Find next open day
+      var nextText = 'Stängt just nu';
+      for (var i = 1; i <= 7; i++) {
+        var nextDay = (day + i) % 7;
+        if (schedule[nextDay]) {
+          var dayNames = ['söndag', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag'];
+          nextText = 'Stängt just nu – öppnar ' + dayNames[nextDay] + ' ' +
+            pad(schedule[nextDay].open[0]) + ':' + pad(schedule[nextDay].open[1]);
+          break;
+        }
+      }
+      text.textContent = nextText;
     }
-  });
-}
 
-// ---------- FADE-IN ON SCROLL (IntersectionObserver) ----------
-const fadeEls = document.querySelectorAll('.fade-in');
-if ('IntersectionObserver' in window && fadeEls.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
-  );
-  fadeEls.forEach(el => observer.observe(el));
-} else {
-  // Fallback: just show everything
-  fadeEls.forEach(el => el.classList.add('is-visible'));
-}
-
-// ---------- SERVICE CARD TOUCH FLIP ----------
-// On touch devices (hover:none), tapping a card flips it.
-const isTouchDevice = window.matchMedia('(hover: none)').matches;
-if (!isTouchDevice) {
-  // Desktop: cards are flipped via CSS :hover — no JS needed.
-  // But for the featured card we handle a click toggle since it
-  // doesn't participate in the standard 4-column flip pattern.
-  const featured = document.querySelector('.service-card--featured');
-  if (featured) {
-    featured.addEventListener('click', () => {
-      featured.classList.toggle('is-flipped');
-    });
+    indicator.innerHTML = '';
+    indicator.appendChild(dot);
+    indicator.appendChild(text);
   }
-} else {
-  // Touch: all cards toggle on tap
-  document.querySelectorAll('.service-card').forEach(card => {
-    // On touch/mobile, CSS already shows both sides stacked (see media query),
-    // so no JS flip needed — but keep the class for potential future use.
+
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  check();
+})();
+
+// --- SERVICE CARD MOBILE TAP-TO-FLIP ---
+(function () {
+  if (window.matchMedia('(hover: hover)').matches) return; // desktop with hover, skip
+
+  var cards = document.querySelectorAll('.service-card');
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      this.classList.toggle('flipped');
+    });
   });
-}
-
-// ---------- SMOOTH ACTIVE NAV LINK ----------
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.main-nav a');
-
-if (sections.length && navLinks.length) {
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            link.style.color = (href === `#${id}`) ? 'var(--accent-dark)' : '';
-            link.style.background = (href === `#${id}`) ? 'rgba(200,168,152,0.12)' : '';
-          });
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-  sections.forEach(s => sectionObserver.observe(s));
-}
+})();
