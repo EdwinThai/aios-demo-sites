@@ -1,111 +1,66 @@
 (function(){
-  'use strict';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Year in footer
-  var yearEl = document.getElementById('year');
-  if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
-
-  // Theme toggle
-  var themeBtn = document.getElementById('themeToggle');
-  if(themeBtn){
-    themeBtn.addEventListener('click', function(){
-      var current = document.documentElement.getAttribute('data-theme');
-      var next;
-      if(current === 'dark'){ next = 'light'; }
-      else if(current === 'light'){ next = 'dark'; }
-      else {
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        next = prefersDark ? 'light' : 'dark';
-      }
-      document.documentElement.setAttribute('data-theme', next);
-      try{ localStorage.setItem('theme', next); }catch(e){}
-    });
-  }
-
-  // Mobile nav toggle
-  var navToggle = document.getElementById('navToggle');
-  var mainNav = document.getElementById('mainNav');
-  if(navToggle && mainNav){
-    navToggle.addEventListener('click', function(){
-      var open = mainNav.classList.toggle('is-open');
-      navToggle.classList.toggle('is-open', open);
+  /* Mobile nav */
+  var navToggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.site-nav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    mainNav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        mainNav.classList.remove('is-open');
-        navToggle.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded','false');
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
 
-  // Header scroll state
-  var header = document.getElementById('siteHeader');
-  function onScrollHeader(){
-    if(!header) return;
-    if(window.scrollY > 20){ header.classList.add('is-scrolled'); }
-    else{ header.classList.remove('is-scrolled'); }
-  }
-  document.addEventListener('scroll', onScrollHeader, { passive:true });
-  onScrollHeader();
-
-  // Name-write progress (fallback in case site-kit does not already handle it)
-  var nameWrite = document.querySelector('.name-write');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function updateNameProgress(){
-    if(!nameWrite) return;
-    var p = reduceMotion ? 100 : Math.max(0, Math.min(100, (window.scrollY / 180) * 100));
-    nameWrite.style.setProperty('--progress', p + '%');
-  }
-  document.addEventListener('scroll', updateNameProgress, { passive:true });
-  updateNameProgress();
-
-  // Parallax blobs
-  var blobs = document.querySelectorAll('.blob');
-  var ticking = false;
-  function applyParallax(){
-    if(reduceMotion) return;
-    var sy = window.scrollY;
-    blobs.forEach(function(b, i){
-      var speed = 0.08 + i * 0.05;
-      b.style.transform = 'translateY(' + (sy * speed) + 'px)';
+  /* Theme toggle */
+  var themeBtn = document.querySelector('.theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var html = document.documentElement;
+      var current = html.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
-    ticking = false;
   }
-  document.addEventListener('scroll', function(){
-    if(!ticking){
-      window.requestAnimationFrame(applyParallax);
-      ticking = true;
+
+  /* Hero parallax: scroll + mouse tilt, transform-only */
+  var heroBg = document.querySelector('.hero-bg');
+  if (heroBg && !reduceMotion) {
+    var scrollY = 0, tiltX = 0, tiltY = 0, ticking = false;
+    function apply() {
+      heroBg.style.transform = 'translate3d(' + tiltX + 'px,' + (scrollY * 0.32 + tiltY) + 'px,0) scale(1.08)';
+      ticking = false;
     }
-  }, { passive:true });
-
-  var heroEl = document.getElementById('hero');
-  if(heroEl && !reduceMotion){
-    heroEl.addEventListener('mousemove', function(e){
-      var rect = heroEl.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      blobs.forEach(function(b, i){
-        var strength = 12 + i * 6;
-        b.style.transform += ' translate(' + (x * strength) + 'px, ' + (y * strength) + 'px)';
-      });
+    window.addEventListener('scroll', function () {
+      scrollY = window.scrollY;
+      if (!ticking) { window.requestAnimationFrame(apply); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('mousemove', function (e) {
+      tiltX = (e.clientX / window.innerWidth - 0.5) * 18;
+      tiltY = (e.clientY / window.innerHeight - 0.5) * 12;
+      window.requestAnimationFrame(apply);
     });
   }
 
-  // Open / closed status (Mon-Fri 10:00-18:00)
-  var statusEl = document.getElementById('openStatus');
-  function updateOpenStatus(){
-    if(!statusEl) return;
+  /* Open-now indicator based on verified opening hours (mån-fre 10-18) */
+  var statusEl = document.querySelector('[data-open-status]');
+  if (statusEl) {
+    var hours = { 1: [10, 18], 2: [10, 18], 3: [10, 18], 4: [10, 18], 5: [10, 18] };
     var now = new Date();
-    var day = now.getDay(); // 0 sun .. 6 sat
-    var minutes = now.getHours() * 60 + now.getMinutes();
-    var isOpenDay = day >= 1 && day <= 5;
-    var isOpenTime = minutes >= 600 && minutes < 1080; // 10:00-18:00
-    var open = isOpenDay && isOpenTime;
-    statusEl.innerHTML = '<span class="status-dot ' + (open ? 'open' : '') + '"></span>' + (open ? 'Öppet just nu' : 'Stängt just nu');
+    var day = now.getDay();
+    var h = now.getHours() + now.getMinutes() / 60;
+    var isOpen = !!hours[day] && h >= hours[day][0] && h < hours[day][1];
+    statusEl.textContent = isOpen ? 'Öppet nu' : 'Stängt nu — öppnar igen enligt schemat nedan';
   }
-  updateOpenStatus();
-  setInterval(updateOpenStatus, 60000);
 
+  /* Footer year */
+  var yearEl = document.getElementById('year');
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 })();
