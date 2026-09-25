@@ -1,27 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sidan hittades inte | Pretty Hair Sundsvall</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidan hittades inte — Pretty Hair Sundsvall</title>
 <meta name="description" content="Sidan du sökte finns inte längre hos Pretty Hair Sundsvall.">
-<meta name="theme-color" content="#C97B5A">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('ph-theme');
+    if (t === 'dark' || t === 'light') { document.documentElement.setAttribute('data-theme', t); }
+  } catch(e) {}
+})();
+</script>
 <link rel="stylesheet" href="styles.css">
 <style>
-  .notfound-wrap { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem; background: linear-gradient(160deg, var(--accent-dark), #2a1c15 130%); color:var(--on-accent); }
-  .notfound-wrap .eyebrow { color: var(--highlight); }
-  .notfound-wrap h1 { font-size: clamp(3rem, 10vw, 6rem); margin-bottom:.5rem; }
-  .notfound-wrap p { color: var(--on-accent); opacity:.9; max-width:50ch; margin: 0 auto 2rem; }
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--paper);
+  }
+  .error-page .eyebrow { color: var(--accent-dark); }
+  .error-page h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 0.4rem; }
+  .error-page p { max-width: 46ch; color: var(--ink-faint); }
+  .error-code { font-family: 'Fraunces', serif; font-size: 5rem; color: var(--rose); font-weight: 600; margin-bottom: 0; }
 </style>
 </head>
 <body>
-<div class="notfound-wrap">
-  <p class="eyebrow">404</p>
-  <h1>Hoppsan, den luggen finns inte</h1>
-  <p>Sidan du letar efter kan ha klippts bort eller flyttats. Men salongen finns kvar — kom vidare till startsidan så hittar du det du behöver, som bokning och öppettider.</p>
-  <a class="btn btn-primary" href="index.html">Till startsidan</a>
+<div class="error-page">
+  <p class="error-code">404</p>
+  <p class="eyebrow">Oj då</p>
+  <h1>Den här sidan klipptes visst bort</h1>
+  <p>Vi kunde inte hitta sidan du letade efter. Kanske länken är gammal, eller så skrevs adressen fel — men salongen finns kvar precis där den ska.</p>
+  <a class="btn btn-primary" href="index.html" style="margin-top:2rem;">Tillbaka till startsidan</a>
 </div>
 </body>
 </html>
