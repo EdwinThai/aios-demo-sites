@@ -1,0 +1,49 @@
+@font-face { font-family: 'Italiana'; src: url('italiana-400-latin.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Karla'; src: url('karla-latin.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+
+:root {
+  --font-head: 'Italiana', Georgia, serif;
+  --font-body: 'Karla', -apple-system, sans-serif;
+  --paper: #F5F4F2;
+  --paper-deep: #ECEAE6;
+  --ink: #181818;
+  --ink-faint: #4A4A48;
+  --accent: #0E5C56;
+  --accent-deep: #0E5C56;
+  --surface-dark: #303030;
+  --line: rgba(14, 92, 86, 0.25);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); --accent-text: #0E5C56;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 400; color: var(--ink); line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); margin: 0 0 2.5rem; text-align: center; }
+a { color: var(--accent-text, var(--accent)); transition: color 0.2s var(--ease), opacity 0.2s var(--ease); }
+a:hover { opacity: 0.7; }
+
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--paper); padding: 0.75rem 1rem; z-index: 100; }
+.skip-link:focus { left: 0; }
+
+.site-logo img { max-height: 44px; width: auto; object-fit: contain; display: block; }
+.site-nav a { color: var(--ink); text-decoration: none; }
+
+.section { padding: 6rem 1.5rem; border-top: 1px solid var(--line); }
+.section-alt { background: var(--paper-deep); }
+.container { max-width: 1040px; margin: 0 auto; }
+
+.btn { display: inline-block; border: 1px solid var(--accent); border-radius: 0; padding: 0.95rem 2.2rem; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--accent-text, var(--accent)); background: transparent; transition: background-color 0.25s var(--ease), color 0.25s var(--ease); }
+.btn-primary { background: var(--accent); color: #fff; margin-top: 2rem; }
+.btn-primary:hover { background: transparent; color: var(--ink); opacity: 1; }
+
+.site-footer { background: var(--surface-dark); color: #F5F4F2; padding: 4rem 1.5rem; text-align: center; }
+.site-footer p { margin: 0.4rem 0; }
+.site-footer a { color: #F5F4F2; }
+.footer-name { font-family: var(--font-head); font-size: 2rem; letter-spacing: 0.04em; }
+
+@media (max-width: 700px) {
+  .section { padding: 3.5rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
