@@ -2481,60 +2481,6 @@
 
   var WEEKDAY_SHORT = ["Sön", "Mån", "Tis", "Ons", "Tors", "Fre", "Lör"];
 
-  /**
-   * "Nästa lediga tid" — the one honest scarcity/urgency signal this
-   * system allows (2026-09-17): real availability computed from the
-   * company's actual staff schedules + real bookings (same endpoint the
-   * booking widget itself uses for "nästa tillgängliga frisör"), never a
-   * fabricated countdown. If the real answer is "plenty of room", it just
-   * says the real next slot — it doesn't lie in either direction. Fails
-   * silently (element stays hidden) on any network/API error, same
-   * philosophy as every other optional site-kit widget.
-   */
-  function formatNextAvailable(dateIso, timeHm) {
-    var today = new Date();
-    var todayIso = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
-    var tomorrow = new Date(today.getTime() + 86400000);
-    var tomorrowIso = tomorrow.getFullYear() + "-" + String(tomorrow.getMonth() + 1).padStart(2, "0") + "-" + String(tomorrow.getDate()).padStart(2, "0");
-    if (dateIso === todayIso) return "Idag kl " + timeHm;
-    if (dateIso === tomorrowIso) return "Imorgon kl " + timeHm;
-    var d = new Date(dateIso + "T00:00:00");
-    return WEEKDAY_SHORT[d.getDay()] + " " + d.getDate() + "/" + (d.getMonth() + 1) + " kl " + timeHm;
-  }
-
-  function wireNextAvailable() {
-    document.querySelectorAll(".next-available-note").forEach(function (el) {
-      var isLive = el.getAttribute("data-live") === "true";
-      if (!isLive) {
-        var d = new Date();
-        for (var i = 0; i < 8; i++) {
-          var dateStr = isoDate(d);
-          var slots = demoSlotsForDate(dateStr);
-          if (slots.length > 0) {
-            el.textContent = "Nästa lediga tid: " + formatNextAvailable(dateStr, slots[0]);
-            el.hidden = false;
-            return;
-          }
-          d.setDate(d.getDate() + 1);
-        }
-        el.hidden = true;
-        return;
-      }
-      var companyId = el.getAttribute("data-company-id");
-      var apiBase = el.getAttribute("data-api-base") || "";
-      var duration = el.getAttribute("data-duration-minutes") || "30";
-      if (!companyId) return;
-      fetch(apiBase + "/bookings/" + companyId + "/next-available?durationMinutes=" + duration)
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (next) {
-          if (!next || !next.date || !next.time) { el.hidden = true; return; }
-          el.textContent = "Nästa lediga tid: " + formatNextAvailable(next.date, next.time);
-          el.hidden = false;
-        })
-        .catch(function () { el.hidden = true; });
-    });
-  }
-
   // Hero intro (2026-10-01): builds the standard name-driven hero animation
   // from ONE bare tag — `<h1 class="hero-intro" data-effect="lockup"
   // data-above="Hårsalong · Östermalm" data-below="Sedan 2011">Namn</h1>` —
@@ -2954,7 +2900,6 @@
       wireServiceGroups();
       wirePriceMenu();
       wireHoursList();
-      wireNextAvailable();
       wireBooking();
 
       // The legacy always-visible calendar uses the shared #bdBackdrop confirm
