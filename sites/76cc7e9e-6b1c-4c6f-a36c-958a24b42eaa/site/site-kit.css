@@ -141,18 +141,6 @@
 .review-card-rating [data-count-to] { font-family: var(--font-head, inherit); font-size: 1.3rem; color: var(--accent, #333); }
 .review-quote { font-family: var(--font-head, inherit); font-size: 1.3rem; color: var(--ink-faint, #888); margin: 0; font-style: italic; }
 
-/*
- * Next-available note (2026-09-17) — real, computed availability, never a
- * fabricated countdown (see wireNextAvailable() in site-kit.js). Starts
- * hidden (`hidden` attribute) so a slow/failed fetch never flashes empty
- * text — site-kit.js only reveals it once it actually has a real answer.
- */
-.next-available-note {
-  display: inline-flex; align-items: center; gap: 0.4em;
-  font-size: 0.85rem; font-weight: 600; color: var(--accent, #333);
-}
-.next-available-note::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #333); flex: none; }
-
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
@@ -1142,7 +1130,6 @@ body.sk-selma[data-hero-effect="horizon"] .hero-frame .site-logo { display: none
 body.sk-selma[data-hero-effect="horizon"] .hero-frame > .site-header, body.sk-selma[data-hero-effect="horizon"] .hero-frame > .site-header > * { justify-content: center !important; }
 .sk-selma .hero-intro { margin-bottom: clamp(16px, 3vw, 30px) !important; }
 .hero-intro .hi-name { text-wrap: balance; }
-.sk-selma .hero-text .next-available-note { font-size: 13px; font-weight: 400; letter-spacing: 0.04em; color: var(--ink-faint, inherit); }
 
 
 /*
@@ -1348,9 +1335,9 @@ section:has(> .visit-band.is-side) > .visit-band { text-align: left; }
 .vs-links { display: flex; gap: 8px 22px; flex-wrap: wrap; margin: 26px 0 0; font-size: 14px; }
 .vs-link { text-decoration: underline; text-underline-offset: 3px; }
 .vs-map { border: 1px solid var(--vs-line); background: color-mix(in srgb, var(--accent, #999) 8%, var(--paper, #fff)); overflow: hidden; }
-.vs-map iframe { display: block; width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(0.95) brightness(1.03); }
+/* The map is always Google's own, in colour (Edwin 2026-11-02: no grey or inverted map, also not on dark sections). */
+.vs-map iframe { display: block; width: 100%; height: 100%; border: 0; }
 .vs-map.is-square { aspect-ratio: 1 / 1; max-height: 520px; }
-.vs-map.is-dark iframe { filter: grayscale(1) invert(0.92) contrast(0.9); }
 .vs-map.is-framed { max-width: 860px; aspect-ratio: 16 / 9; margin: 36px auto 0; padding: 10px; }
 .vs-addr { font-family: var(--font-head, inherit); font-weight: 400; font-size: clamp(30px, 4.4vw, 56px); line-height: 1.1; margin: 0 0 6px; text-wrap: balance; }
 .vs-find.vl-card { text-align: center; }
@@ -1666,3 +1653,22 @@ section.section:has(> .reviews-block) { padding-block: clamp(36px, 5vw, 64px); }
 html, body { overflow-x: clip; }
 .menu-groups > *, .price-item, .price-item > * { min-width: 0; }
 .price-item-name { overflow-wrap: anywhere; }
+
+/*
+ * One alignment per block (Edwin 2026-11-02, Salong Lunzo: the name in the middle, "Om oss" and the text to the left).
+ * The model's styles.css often says h2 { text-align: center } or centres a whole .section, and that reached the headings
+ * in the blocks code builds. So these blocks set their own alignment and every part follows the block. The rule: text
+ * beside something (a photo, a map, "Följ oss") is left-aligned, text alone in one column is centred.
+ */
+section > .about-block, section.vs { text-align: left; }
+.about-block .about-title, .about-block .about-eyebrow, .about-block p,
+.vs .vs-title, .vs .vs-addr, .vs .vs-eyebrow, .vs p,
+.team-block .team-title, .faq-block .faq-title, .reviews-block .rv-title { text-align: inherit; }
+.about-block.is-split.no-follow, .about-block.is-panel.no-follow, .about-block.is-statement.no-follow { text-align: center; justify-items: center; }
+.vs-split.is-solo { text-align: center; }
+.vs-split.is-solo .hours-list.vs-hours { margin-inline: auto; text-align: left; }
+/* The eyebrow and name are placed by named grid areas in the four-part layouts. Inside .about-copy (facts, photo) there
+   are no such areas, so they landed on top of each other beside the text. Here they just stack in order. */
+.about-block .about-copy > .about-eyebrow, .about-block .about-copy > .about-title { grid-area: auto; }
+/* A heading right inside a Besök oss section sits on the same column as the eyebrow (strip, side). */
+.vs > .vs-title, .vs > .vs-addr, .vs > .vs-sub { margin-inline: auto; }
