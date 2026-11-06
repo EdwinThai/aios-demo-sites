@@ -1,0 +1,102 @@
+@font-face { font-family: 'Italiana'; src: url('italiana-400-latin.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Karla'; src: url('karla-latin.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+
+:root {
+  --paper: #E9DCC9;
+  --sand: #F3EADC;
+  --ink: #2A211B;
+  --ink-faint: #6B5E50;
+  --accent: #B5622A;
+  --line: rgba(181, 98, 42, 0.28);
+  --font-head: 'Italiana', Georgia, serif;
+  --font-body: 'Karla', -apple-system, sans-serif; --accent-text: #945022; --accent-deep: #B16029;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+}
+h2 { font-size: clamp(2rem, 4vw, 3.25rem); text-align: center; }
+h3 { font-size: 1.5rem; }
+
+a { color: var(--accent-text, var(--accent)); transition: color 0.25s ease; }
+
+.section {
+  padding: clamp(3.5rem, 8vw, 7rem) 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.section:nth-of-type(even) { background: var(--sand); }
+
+.section-lead {
+  text-align: center;
+  color: var(--ink-faint);
+  max-width: 60ch;
+  margin: 0 auto 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 0;
+  border: 1px solid var(--accent);
+  padding: 0.85rem 1.8rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: transparent; color: var(--accent-text, var(--accent)); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+.site-footer p { margin: 0 0 0.5rem; }
+.site-footer .footer-name {
+  font-family: var(--font-head);
+  font-size: 1.75rem;
+}
+.site-footer a { color: var(--paper); text-decoration: none; border-bottom: 1px solid var(--line); }
+.site-footer a:hover { color: var(--sand); }
+
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .section { padding: 3.5rem 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+}
