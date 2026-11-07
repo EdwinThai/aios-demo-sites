@@ -1,0 +1,176 @@
+@font-face { font-family: 'Italiana'; src: url('italiana-400-latin.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Karla'; src: url('karla-latin.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+
+:root {
+  --paper: #1B1A19;
+  --ink: #F2ECE0;
+  --ink-faint: #A8A092;
+  --accent: #E2B96F;
+  --surface: #262422;
+  --line: rgba(226, 185, 111, 0.25);
+  --font-head: 'Italiana', Georgia, serif;
+  --font-body: 'Karla', -apple-system, sans-serif; --accent-text: #E2B96F; --accent-deep: #996E1F;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+}
+h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
+h3 { font-size: 1.5rem; }
+
+a { color: var(--accent-text, var(--accent)); transition: color 0.25s ease; }
+a:hover { color: var(--ink); }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* Knappar */
+.btn, .price-item-book-btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-radius: 0;
+  border: 1px solid var(--accent);
+  padding: 0.9rem 1.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--paper);
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent-text, var(--accent));
+}
+
+/* Sektioner */
+.section {
+  padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-lead {
+  color: var(--ink-faint);
+  max-width: 60ch;
+  margin: 0 0 2.5rem;
+}
+#tjanster { text-align: center; }
+#tjanster .section-lead { margin-left: auto; margin-right: auto; }
+
+/* Växlande bakgrund i full bredd */
+#brollop, #om-oss, #bra-att-veta {
+  position: relative;
+  max-width: none;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+#brollop > *, #om-oss > *, #bra-att-veta > * {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#omdomen, #oppettider { border-top: 0; }
+
+/* Bröllop */
+.event-split {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+.event-eyebrow {
+  display: block;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-text, var(--accent));
+  margin-bottom: 1rem;
+}
+.event-title { font-size: clamp(2rem, 4vw, 3rem); }
+.event-text p { color: var(--ink-faint); margin: 0 0 1.75rem; }
+.event-text .price-item-book-btn { background: var(--accent); color: var(--paper); }
+.event-text .price-item-book-btn:hover { background: transparent; color: var(--accent-text, var(--accent)); }
+
+/* Sidfot */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: clamp(3rem, 7vw, 5rem) 1.25rem;
+}
+.site-footer p { margin: 0 0 0.5rem; color: var(--ink-faint); }
+.site-footer .footer-name {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  color: var(--ink);
+}
+
+/* 404 */
+.nf-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  margin: 1rem;
+  min-height: calc(100vh - 2rem);
+}
+.nf-logo {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nf-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+.nf-main h1 { font-size: clamp(2.5rem, 7vw, 5rem); letter-spacing: -0.01em; }
+.nf-main p { color: var(--ink-faint); margin: 0 0 1.75rem; }
+
+@media (max-width: 760px) {
+  .event-split { grid-template-columns: 1fr; }
+  body { font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+}
