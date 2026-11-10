@@ -2799,7 +2799,68 @@
     }
     Array.prototype.forEach.call(container.children, function (el) { if (el.querySelectorAll(".price-item").length > 1) orderPricesDom(el, rankOf); });
   }
-  function syncPricesDom(services, ordered) {
+  /**
+   * The price list built from Bokningar > Tjänster (2026-11-07, Edwin: salons make their own undergrupper, like
+   * Balayage's Färg > Balayage > the balayage services). Same rule as regroupPriceList() in siteDataSync.ts: every
+   * category holds exactly its services in the catalog's order, each undergrupp as one .service-group (name, short
+   * line, its services) where its first service is, every other service a choice of its own; headings and notes stay.
+   */
+  function isChoice(el) { return el.classList.contains("service-group") || el.classList.contains("price-item"); }
+  function regroupPricesDom(root, services, groups) {
+    var byId = {};
+    groups.forEach(function (g) { byId[g.id] = g; });
+    var existing = Array.prototype.filter.call(root.children, function (el) { return el.classList.contains("menu-group"); });
+    var cats = [], byCat = {};
+    services.forEach(function (s) {
+      // a service in a group is listed in the group's own category, wherever the service itself belongs
+      var home = s.group_id && byId[s.group_id] ? String(byId[s.group_id].category || "").trim() : "";
+      var cat = home || String(s.category || "").trim() || (existing.length === 1 ? groupLabel(existing[0]) : "Övrigt");
+      var k = cat.toLowerCase();
+      if (!byCat[k]) { byCat[k] = []; cats.push(cat); }
+      byCat[k].push(s);
+    });
+    var anchor = document.createComment("");
+    root.insertBefore(anchor, existing[0] || null);
+    existing.forEach(function (g) { root.removeChild(g); });
+    cats.forEach(function (cat) {
+      var el = existing.filter(function (g) { return groupLabel(g).toLowerCase() === cat.toLowerCase(); })[0];
+      if (!el) {
+        el = document.createElement("div");
+        el.className = "menu-group";
+        var h = document.createElement("h3");
+        h.textContent = cat;
+        el.appendChild(h);
+      }
+      var kids = Array.prototype.slice.call(el.children);
+      var mark = document.createComment("");
+      el.insertBefore(mark, kids.filter(isChoice)[0] || null);
+      kids.forEach(function (k) { if (isChoice(k)) el.removeChild(k); });
+      var open = {};
+      byCat[cat.toLowerCase()].forEach(function (s) {
+        var g = s.group_id ? byId[s.group_id] : null;
+        if (g && open[g.id]) { open[g.id].appendChild(priceItemEl(s)); return; }
+        var sg = document.createElement("div");
+        sg.className = "service-group";
+        var nm = document.createElement("span");
+        nm.className = "service-group-name";
+        nm.textContent = g ? g.name : s.name;
+        sg.appendChild(nm);
+        if (g && g.description) {
+          var d = document.createElement("span");
+          d.className = "service-group-desc";
+          d.textContent = g.description;
+          sg.appendChild(d);
+        }
+        sg.appendChild(priceItemEl(s));
+        el.insertBefore(sg, mark);
+        if (g) open[g.id] = sg;
+      });
+      el.removeChild(mark);
+      root.insertBefore(el, anchor);
+    });
+    root.removeChild(anchor);
+  }
+  function syncPricesDom(services, ordered, serviceGroups) {
     var root = document.querySelector(".menu-groups");
     if (!root) return;
     unwirePrices(root);
@@ -2846,13 +2907,17 @@
       sg.appendChild(priceItemEl(s));
       target.appendChild(sg);
     });
+    if (serviceGroups) {
+      regroupPricesDom(root, services, serviceGroups);
+      groups = Array.prototype.filter.call(root.children, function (el) { return el.classList.contains("menu-group"); });
+    }
     groups.forEach(function (g) {
       var badge = g.querySelector(".menu-group-count");
       if (badge) badge.textContent = String(g.querySelectorAll(".price-item").length);
     });
     var note = root.previousElementSibling;
     if (note && note.classList.contains("price-example-note")) note.parentNode.removeChild(note);
-    if (ordered) {
+    if (ordered && !serviceGroups) {
       var at = {};
       services.forEach(function (s, i) { var k = normService(s.name); if (!(k in at)) at[k] = i; });
       orderPricesDom(root, function (el) {
@@ -2886,7 +2951,7 @@
   }
   function applySiteData(data) {
     try { if (data.hours) syncHoursDom(data.hours); } catch (e) {}
-    try { if (data.services && data.services.length) syncPricesDom(data.services, !!data.servicesOrdered); } catch (e) {}
+    try { if (data.services && data.services.length) syncPricesDom(data.services, !!data.servicesOrdered, data.groups || null); } catch (e) {}
     try { if (data.team) syncTeamDom(data.team); } catch (e) {}
   }
 
